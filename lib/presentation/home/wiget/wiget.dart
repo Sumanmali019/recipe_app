@@ -16,6 +16,8 @@ class AnnotatedScaffold extends StatelessWidget {
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
         child: SafeArea(child: child),
+
+        
       ),
     );
   }
