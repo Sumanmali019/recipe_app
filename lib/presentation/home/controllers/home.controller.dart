@@ -15,6 +15,7 @@ class HomeController extends GetxController {
   void onInit() {
     super.onInit();
     Future.delayed(2550.ms, () => changeListVisibility());
+    loadRecipes();
   }
 
   void changeListVisibility() {

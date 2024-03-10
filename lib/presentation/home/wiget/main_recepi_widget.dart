@@ -17,7 +17,7 @@ class AnimatedRecipesWidget extends StatelessWidget {
     final controller = Get.put(HomeController());
 
     return Obx(() {
-      if (!controller.isLoading.value) {
+      if (controller.isLoading.value) {
         return ShimmerLoadingList(constraints: constraints);
       } else if (controller.errorMessage.isNotEmpty) {
         return Center(child: Text(controller.errorMessage.value));

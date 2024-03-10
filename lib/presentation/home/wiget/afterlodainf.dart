@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:recepi_application/domain/model/recipe.dart';
-import 'package:recepi_application/presentation/home/wiget/recepi_card.dart';
+import 'package:recepi_application/presentation/home/wiget/home_Listo_recepi_card.dart';
+
+import '../controllers/home.controller.dart';
 
 class LoadedRecipesWidget extends StatelessWidget {
   final List<Recipe> recipes;
@@ -14,19 +18,19 @@ class LoadedRecipesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: recipes.length,
+    final HomeController controller = Get.find<HomeController>();
+    return Obx(() => ListView.builder(
+        itemCount: controller.recipes.length,
         itemBuilder: (context, index) {
+          final recipe = controller.recipes[index];
           return GestureDetector(
             onTap: () {
-              print("clicked");
               Navigator.of(context).pushNamed(
-                '/catgeory',
-                arguments: recipes[index],
+                'recipe_details',
+                arguments: recipe,
               );
             },
-            child: RecipeCardWidget(
-                    constraints: constraints, recipe: recipes[index])
+            child: RecipeCardWidget(constraints: constraints, recipe: recipe)
                 .animate()
                 .slideX(
                     duration: 200.ms,
@@ -35,6 +39,6 @@ class LoadedRecipesWidget extends StatelessWidget {
                     end: 0,
                     curve: Curves.easeInOutSine),
           );
-        });
+        }));
   }
 }
