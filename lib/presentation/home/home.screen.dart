@@ -3,6 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 
 import 'package:get/get.dart';
 import 'package:recepi_application/presentation/catgeory/widgets/catgeory_widgets.dart';
+import 'package:recepi_application/presentation/catgeory/widgets/catgeoy_list_widget.dart';
 import 'package:recepi_application/presentation/home/wiget/animated_recepiwidget.dart';
 import 'package:recepi_application/presentation/home/wiget/home_saffold.dart';
 
@@ -28,6 +29,10 @@ class HomeScreen extends GetView<HomeController> {
             constraints: constraints,
             categoryListPlayDuration: categoryListPlayDuration,
             categoryListDelayDuration: categoryListDelayDuration,
+            onCategorySelected:
+                controller.setCurrentCategory, // Pass the callback
+            selectedCategory: controller.currentCategory.value,
+            categories: controller.categories,
           ),
           Positioned.fill(
               top: constraints.maxHeight * 0.20,

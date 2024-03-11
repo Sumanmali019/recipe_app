@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 class FoodCategoryWidget extends StatelessWidget {
   final String icon;
   final String name;
+  final bool isSelected;
   const FoodCategoryWidget({
     Key? key,
     required this.icon,
+    this.isSelected = false,
     required this.name,
   }) : super(key: key);
 
@@ -15,7 +17,7 @@ class FoodCategoryWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
-        color: Colors.blueAccent.shade400,
+        color: isSelected ? Colors.blueAccent.shade400 : Colors.transparent,
         border: Border.all(color: Colors.white30, width: 2),
         borderRadius: BorderRadius.circular(25),
       ),

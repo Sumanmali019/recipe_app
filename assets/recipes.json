@@ -75,7 +75,7 @@
   {
     "id": "4",
     "name": "Tacos",
-    "category": "healthy",
+    "category": "Healthy",
     "description": "Soft tortilla shells filled with seasoned ground chicken, lettuce, cheese and salsa",
     "imageUrl": "assets/images/tacos.png",
     "ingredients": [
@@ -170,7 +170,7 @@
   {
     "id": "8",
     "name": "Chocolate Chip Cookies",
-    "category": "popular",
+    "category": "Diet",
     "description": "Chewy cookies filled with chocolate chips",
     "imageUrl": "assets/images/cookies.png",
     "ingredients": [
@@ -195,7 +195,7 @@
   {
     "id": "9",
     "name": "Chicken Fried Rice",
-    "category": "diet",
+    "category": "Diet",
     "description": "Rice stir-fried with chicken, vegetables and egg",
     "imageUrl": "assets/images/rice.png",
     "ingredients": [
@@ -223,7 +223,7 @@
     "name": "Butter Chicken",
     "description": "Tender chicken cooked in a creamy tomato-based sauce",
     "imageUrl": "assets/images/butter_chicken.png",
-    "category": "popular",
+    "category": "Vegetarian",
     "ingredients": [
       "chicken",
       "butter",
@@ -251,7 +251,7 @@
     "name": "Chole Bhature",
     "description": "Spicy chickpea curry served with fried bread",
     "imageUrl": "assets/images/chole_bhature.png",
-    "category": "healthy",
+    "category": "Healthy",
     "ingredients": [
       "chickpeas",
       "onions",
@@ -277,7 +277,7 @@
     "name": "Palak Paneer",
     "description": "Cubes of paneer cheese in a thick spinach sauce",
     "imageUrl": "assets/images/palak_paneer.png",
-    "category": "vegetarian",
+    "category": "Vegetarian",
     "ingredients": [
       "spinach",
       "paneer",
