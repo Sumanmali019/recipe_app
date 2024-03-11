@@ -10,7 +10,6 @@ class AnimatedCategoryList extends GetView<HomeController> {
   final Duration categoryListPlayDuration;
   final Duration categoryListDelayDuration;
   final Function(String) onCategorySelected;
-  final String selectedCategory;
   final List<FoodCategoryWidget> categories;
 
   const AnimatedCategoryList({
@@ -19,7 +18,6 @@ class AnimatedCategoryList extends GetView<HomeController> {
     required this.categoryListPlayDuration,
     required this.categoryListDelayDuration,
     required this.onCategorySelected,
-    required this.selectedCategory,
     required this.categories,
   }) : super(key: key);
 
@@ -40,11 +38,11 @@ class AnimatedCategoryList extends GetView<HomeController> {
                       child: GestureDetector(
                         onTap: () => onCategorySelected(categories[index].name),
                         child: FoodCategoryWidget(
-                          icon: categories[index].icon,
-                          name: categories[index].name,
-                          isSelected: categories[index].name.toLowerCase() ==
-                              selectedCategory
-                                  .toLowerCase(), 
+                          icon: controller.categories[index].icon,
+                          name: controller.categories[index].name,
+                          isSelected: controller.categories[index].name
+                                  .toLowerCase() ==
+                              controller.currentCategory.value.toLowerCase(),
                         ),
                       ),
                     )).animate().slideX(

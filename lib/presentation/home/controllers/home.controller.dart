@@ -15,14 +15,14 @@ class HomeController extends GetxController {
   var errorMessage = ''.obs;
   var showRecipeList = true.obs;
   var currentCategory = 'All'.obs;
+  RxBool isSelected = false.obs;
 
   final List<FoodCategoryWidget> categories = [
+    const FoodCategoryWidget(icon: "🤤", name: "All"),
     const FoodCategoryWidget(
-      icon: "🤤",
-      name: "All",
-      isSelected: true,
+      icon: "🔥",
+      name: "Popular",
     ),
-    const FoodCategoryWidget(icon: "🔥", name: "Popular"),
     const FoodCategoryWidget(icon: "🥦", name: "Healthy"),
     const FoodCategoryWidget(icon: "🍲", name: "Vegetarian"),
     const FoodCategoryWidget(icon: "🍿", name: "Diet"),
@@ -56,8 +56,7 @@ class HomeController extends GetxController {
     try {
       isLoading(true);
       final fetchedRecipes = await fetchRecipes(filePath);
-      allRecipes.assignAll(
-          fetchedRecipes); // Store all fetched recipes in allRecipes.
+      allRecipes.assignAll(fetchedRecipes);
       recipes.assignAll(fetchedRecipes); // Initially display all recipes.
     } catch (e) {
       errorMessage(e.toString());

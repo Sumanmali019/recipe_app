@@ -17,7 +17,7 @@ class FoodCategoryWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
-        color: isSelected ? Colors.blueAccent.shade400 : Colors.transparent,
+        color: isSelected ? Colors.blueAccent.shade400 : Colors.grey.shade300,
         border: Border.all(color: Colors.white30, width: 2),
         borderRadius: BorderRadius.circular(25),
       ),
@@ -36,9 +36,9 @@ class FoodCategoryWidget extends StatelessWidget {
           ),
           Text(
             name,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 20,
-              color: Colors.white,
+              color: isSelected ? Colors.white : Colors.black,
             ),
           )
         ],
