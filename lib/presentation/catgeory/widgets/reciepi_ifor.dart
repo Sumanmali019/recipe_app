@@ -22,7 +22,8 @@ class AnimatedInfoWidget extends StatelessWidget {
       height: constraints.maxHeight * 0.1,
       margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.white30, width: 1.3),
+          color: Color(0xff182032),
+          border: Border.all(color: Colors.white, width: 2),
           borderRadius: BorderRadius.circular(20)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
