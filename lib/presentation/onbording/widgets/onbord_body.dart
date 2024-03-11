@@ -1,8 +1,9 @@
 import 'package:get/get.dart';
 
-import './onboarding_screen_export_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:recepi_application/presentation/onbording/widgets/animated_dish_widget.dart';
+import 'package:recepi_application/presentation/onbording/widgets/onboarding_screen_export_widget.dart';
 
 class OnBoardingBodyWidget extends StatefulWidget {
   const OnBoardingBodyWidget({super.key});
@@ -40,7 +41,7 @@ class _OnBoardingBodyWidgetState extends State<OnBoardingBodyWidget>
         children: [
           SizedBox(
             height: constraint.maxHeight * 0.60,
-            child: AnimatedDishWidget(
+            child: AnimatedDishWidgetonBord(
               dishPlayDuration: mainPlayDuration,
               leavesDelayDuration: leavesDelayDuration,
             ),
