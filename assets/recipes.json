@@ -1,0 +1,294 @@
+[
+  {
+    "id": "1",
+    "name": "Spaghetti Bolognese",
+    "description": "A classic Italian meat sauce served over pasta",
+    "imageUrl": "assets/images/spaghetti.png",
+    "category": "popular",
+    "ingredients": [
+      "spaghetti",
+      "ground chicken",
+      "onions",
+      "tomato sauce",
+      "red wine"
+    ],
+    "steps": [
+      "Cook the spaghetti according to package directions.",
+      "Brown the ground chicken and onions.",
+      "Add the tomato sauce and red wine and simmer for 1 hour.",
+      "Toss with cooked spaghetti and serve."
+    ],
+    "nutrition": {
+      "calories": 650,
+      "protein": 35,
+      "prepTime": 60
+    }
+  },
+  {
+    "id": "2",
+    "name": "Chicken Parmesan",
+    "description": "Breaded chicken breast topped with tomato sauce and mozzarella",
+    "imageUrl": "assets/images/chicken.png",
+    "ingredients": [
+      "chicken breasts",
+      "breadcrumbs",
+      "parmesan",
+      "tomato sauce",
+      "mozzarella"
+    ],
+    "steps": [
+      "Bread chicken breasts with breadcrumbs.",
+      "Pan fry until golden brown.",
+      "Top with tomato sauce and mozzarella.",
+      "Bake until cheese is melted."
+    ],
+    "nutrition": {
+      "calories": 550,
+      "protein": 45,
+      "prepTime": 30
+    }
+  },
+  {
+    "id": "3",
+    "name": "Caesar Salad",
+    "description": "Romaine lettuce with creamy Caesar dressing, croutons and parmesan",
+    "imageUrl": "assets/images/salad.png",
+    "ingredients": [
+      "romaine lettuce",
+      "caesar dressing",
+      "croutons",
+      "parmesan"
+    ],
+    "steps": [
+      "Chop romaine lettuce.",
+      "Toss with caesar dressing.",
+      "Top with croutons and parmesan."
+    ],
+    "nutrition": {
+      "calories": 250,
+      "protein": 10,
+      "prepTime": 10
+    }
+  },
+  {
+    "id": "4",
+    "name": "Tacos",
+    "description": "Soft tortilla shells filled with seasoned ground chicken, lettuce, cheese and salsa",
+    "imageUrl": "assets/images/tacos.png",
+    "ingredients": [
+      "tortillas",
+      "ground chicken",
+      "lettuce",
+      "cheese",
+      "salsa"
+    ],
+    "steps": [
+      "Cook ground chicken with taco seasoning.",
+      "Warm tortillas.",
+      "Fill with chicken, lettuce, cheese and salsa."
+    ],
+    "nutrition": {
+      "calories": 500,
+      "protein": 20,
+      "prepTime": 20
+    }
+  },
+  {
+    "id": "5",
+    "name": "Pasta Alfredo",
+    "description": "Fettuccine pasta tossed in a rich, creamy parmesan cheese sauce",
+    "imageUrl": "assets/images/alfredo.png",
+    "ingredients": [
+      "fettuccine",
+      "butter",
+      "cream",
+      "parmesan"
+    ],
+    "steps": [
+      "Cook pasta according to package directions.",
+      "Melt butter in a pan.",
+      "Add cream and parmesan and cook until thick and creamy.",
+      "Toss pasta with sauce."
+    ],
+    "nutrition": {
+      "calories": 800,
+      "protein": 15,
+      "prepTime": 15
+    }
+  },
+  {
+    "id": "6",
+    "name": "Cheese Pizza",
+    "description": "Crispy crust with tomato sauce and mozzarella cheese",
+    "imageUrl": "assets/images/pizza.png",
+    "ingredients": [
+      "pizza dough",
+      "tomato sauce",
+      "mozzarella"
+    ],
+    "steps": [
+      "Stretch dough into rounds.",
+      "Top with sauce and cheese.",
+      "Bake until crust is crispy and cheese melted."
+    ],
+    "nutrition": {
+      "calories": 700,
+      "protein": 20,
+      "prepTime": 40
+    }
+  },
+  {
+    "id": "7",
+    "name": "Hamburger",
+    "description": "Juicy chicken patty with lettuce, tomato, onion and cheese on a bun",
+    "imageUrl": "assets/images/burger.png",
+    "ingredients": [
+      "ground chicken",
+      "hamburger buns",
+      "lettuce",
+      "tomato",
+      "onion",
+      "cheese"
+    ],
+    "steps": [
+      "Form ground chicken into patties and grill.",
+      "Toast buns.",
+      "Place patty on bun and top with lettuce, tomato, onion and cheese."
+    ],
+    "nutrition": {
+      "calories": 650,
+      "protein": 25,
+      "prepTime": 15
+    }
+  },
+  {
+    "id": "8",
+    "name": "Chocolate Chip Cookies",
+    "description": "Chewy cookies filled with chocolate chips",
+    "imageUrl": "assets/images/cookies.png",
+    "ingredients": [
+      "flour",
+      "butter",
+      "sugar",
+      "eggs",
+      "chocolate chips"
+    ],
+    "steps": [
+      "Cream butter and sugar.",
+      "Beat in eggs.",
+      "Stir in flour and chocolate chips.",
+      "Scoop dough and bake."
+    ],
+    "nutrition": {
+      "calories": 200,
+      "protein": 3,
+      "prepTime": 30
+    }
+  },
+  {
+    "id": "9",
+    "name": "Chicken Fried Rice",
+    "description": "Rice stir-fried with chicken, vegetables and egg",
+    "imageUrl": "assets/images/rice.png",
+    "ingredients": [
+      "rice",
+      "chicken",
+      "vegetables",
+      "egg",
+      "soy sauce"
+    ],
+    "steps": [
+      "Cook rice.",
+      "Stir fry chicken and vegetables.",
+      "Add rice and stir fry.",
+      "Scramble egg and mix in.",
+      "Season with soy sauce."
+    ],
+    "nutrition": {
+      "calories": 450,
+      "protein": 25,
+      "prepTime": 30
+    }
+  },
+  {
+    "id": "10",
+    "name": "Butter Chicken",
+    "description": "Tender chicken cooked in a creamy tomato-based sauce",
+    "imageUrl": "assets/images/butter_chicken.png",
+    "category": "popular",
+    "ingredients": [
+      "chicken",
+      "butter",
+      "cream",
+      "tomatoes",
+      "garam masala",
+      "garlic",
+      "ginger"
+    ],
+    "steps": [
+      "Marinate chicken with yogurt and spices.",
+      "Cook the marinated chicken until golden brown.",
+      "Prepare the sauce with butter, tomatoes, and cream.",
+      "Combine chicken and sauce and simmer.",
+      "Serve with naan or rice."
+    ],
+    "nutrition": {
+      "calories": 585,
+      "protein": 40,
+      "prepTime": 50
+    }
+  },
+  {
+    "id": "11",
+    "name": "Chole Bhature",
+    "description": "Spicy chickpea curry served with fried bread",
+    "imageUrl": "assets/images/chole_bhature.png",
+    "category": "popular",
+    "ingredients": [
+      "chickpeas",
+      "onions",
+      "tomatoes",
+      "bhature flour",
+      "spices"
+    ],
+    "steps": [
+      "Soak and boil chickpeas.",
+      "Prepare spicy gravy with onions and tomatoes.",
+      "Add chickpeas to the gravy and simmer.",
+      "Fry bhature until puffed and golden.",
+      "Serve hot."
+    ],
+    "nutrition": {
+      "calories": 450,
+      "protein": 15,
+      "prepTime": 45
+    }
+  },
+  {
+    "id": "13",
+    "name": "Palak Paneer",
+    "description": "Cubes of paneer cheese in a thick spinach sauce",
+    "imageUrl": "assets/images/palak_paneer.png",
+    "category": "vegetarian",
+    "ingredients": [
+      "spinach",
+      "paneer",
+      "onions",
+      "tomatoes",
+      "garlic",
+      "spices"
+    ],
+    "steps": [
+      "Blanch and puree spinach.",
+      "Fry paneer cubes until golden.",
+      "Saute onions, garlic, and tomatoes with spices.",
+      "Add spinach puree and paneer to the sauteed mixture.",
+      "Simmer and serve."
+    ],
+    "nutrition": {
+      "calories": 350,
+      "protein": 25,
+      "prepTime": 30
+    }
+  }
+]

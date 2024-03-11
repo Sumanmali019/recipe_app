@@ -1,0 +1,39 @@
+name: recepi_application
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=3.2.6 <4.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.2
+  get: ^4.6.6
+  flutter: 
+    sdk: flutter
+  get_cli: ^1.8.4
+  flutter_animate: ^4.5.0
+  google_fonts: ^4.0.4
+  freezed: ^2.4.2
+  timelines: ^0.1.0
+  freezed_annotation: ^2.4.1
+  shimmer: ^3.0.0
+  json_annotation: ^4.8.1
+  image_picker: ^1.0.4
+  sliding_up_panel: ^2.0.0+1
+  flex_color_scheme: ^7.2.0
+  shared_preferences: ^2.2.1
+
+
+dev_dependencies: 
+  flutter_lints: ^2.0.0
+  build_runner: ^2.4.6
+  json_serializable: ^6.7.1
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+
+  assets:
+    - assets/recipes.json
+    - assets/images/
