@@ -27,6 +27,7 @@
   {
     "id": "2",
     "name": "Chicken Parmesan",
+    "category": "healthy",
     "description": "Breaded chicken breast topped with tomato sauce and mozzarella",
     "imageUrl": "assets/images/chicken.png",
     "ingredients": [
@@ -51,6 +52,7 @@
   {
     "id": "3",
     "name": "Caesar Salad",
+    "category": "diet",
     "description": "Romaine lettuce with creamy Caesar dressing, croutons and parmesan",
     "imageUrl": "assets/images/salad.png",
     "ingredients": [
@@ -73,6 +75,7 @@
   {
     "id": "4",
     "name": "Tacos",
+    "category": "healthy",
     "description": "Soft tortilla shells filled with seasoned ground chicken, lettuce, cheese and salsa",
     "imageUrl": "assets/images/tacos.png",
     "ingredients": [
@@ -96,6 +99,7 @@
   {
     "id": "5",
     "name": "Pasta Alfredo",
+    "category": "diet",
     "description": "Fettuccine pasta tossed in a rich, creamy parmesan cheese sauce",
     "imageUrl": "assets/images/alfredo.png",
     "ingredients": [
@@ -119,6 +123,7 @@
   {
     "id": "6",
     "name": "Cheese Pizza",
+    "category": "popular",
     "description": "Crispy crust with tomato sauce and mozzarella cheese",
     "imageUrl": "assets/images/pizza.png",
     "ingredients": [
@@ -140,6 +145,7 @@
   {
     "id": "7",
     "name": "Hamburger",
+    "category": "vegetarian",
     "description": "Juicy chicken patty with lettuce, tomato, onion and cheese on a bun",
     "imageUrl": "assets/images/burger.png",
     "ingredients": [
@@ -164,6 +170,7 @@
   {
     "id": "8",
     "name": "Chocolate Chip Cookies",
+    "category": "popular",
     "description": "Chewy cookies filled with chocolate chips",
     "imageUrl": "assets/images/cookies.png",
     "ingredients": [
@@ -188,6 +195,7 @@
   {
     "id": "9",
     "name": "Chicken Fried Rice",
+    "category": "diet",
     "description": "Rice stir-fried with chicken, vegetables and egg",
     "imageUrl": "assets/images/rice.png",
     "ingredients": [
@@ -243,7 +251,7 @@
     "name": "Chole Bhature",
     "description": "Spicy chickpea curry served with fried bread",
     "imageUrl": "assets/images/chole_bhature.png",
-    "category": "popular",
+    "category": "healthy",
     "ingredients": [
       "chickpeas",
       "onions",

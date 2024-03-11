@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:recepi_application/domain/model/recipe.dart';
 import 'package:recepi_application/presentation/home/wiget/home_Listo_recepi_card.dart';
-import 'package:recepi_application/presentation/home/wiget/shimmer.dart';
 
 import '../controllers/home.controller.dart';
 

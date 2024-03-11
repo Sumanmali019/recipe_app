@@ -10,6 +10,7 @@ class HomeController extends GetxController {
   var isLoading = true.obs;
   var errorMessage = ''.obs;
   var showRecipeList = true.obs;
+  var selectedCategory = ''.obs;
 
   @override
   void onInit() {
@@ -38,6 +39,7 @@ class HomeController extends GetxController {
     try {
       final response = await rootBundle.loadString(filePath);
       final data = jsonDecode(response) as List;
+      print(data.map((e) => Recipe.fromJson(e).category));
       return data.map((e) => Recipe.fromJson(e)).toList();
     } catch (e) {
       throw Exception('Failed to load recipes: $e');

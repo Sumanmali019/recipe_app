@@ -19,7 +19,11 @@ class AnimatedRecipesWidget extends StatelessWidget {
       if (controller.isLoading.isTrue) {
         return ShimmerLoadingList(constraints: constraints);
       } else if (controller.errorMessage.isNotEmpty) {
-        return Center(child: Text(controller.errorMessage.value));
+        return Center(
+            child: Text(
+          controller.errorMessage.value,
+          style: TextStyle(color: Colors.white),
+        ));
       } else {
         return LoadedRecipesWidget(
             recipes: controller.recipes, constraints: constraints);

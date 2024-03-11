@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import 'package:get/get.dart';
-import 'package:recepi_application/domain/model/recipe.dart';
 import 'package:recepi_application/presentation/catgeory/widgets/animated_app_bar.dart';
 import 'package:recepi_application/presentation/catgeory/widgets/reciepi_ifor.dart';
 import 'package:recepi_application/presentation/catgeory/widgets/time_linr-sliding.dart';
@@ -33,6 +32,7 @@ class CatgeoryScreen extends GetView<CatgeoryController> {
                   appBarPlayTime: appBarPlayTime,
                   appBarDelayTime: appBarDelayTime,
                 ),
+               
                 SizedBox(
                   height: constraints.maxHeight * 0.04,
                 ),
@@ -45,7 +45,11 @@ class CatgeoryScreen extends GetView<CatgeoryController> {
                   height: constraints.maxHeight * 0.06,
                 ),
                 AnimatedInfoWidget(
-                    nutrition: controller.recipe.value.nutrition,
+                    nutrition: {
+                      'calories': controller.recipe.value.nutrition.calories,
+                      'protein': controller.recipe.value.nutrition.protein,
+                      'prepTime': controller.recipe.value.nutrition.prepTime,
+                    },
                     infoDelayTime: infoDelayTime,
                     infoPlayTime: infoPlayTime,
                     constraints: constraints),

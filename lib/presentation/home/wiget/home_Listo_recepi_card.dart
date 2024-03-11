@@ -29,9 +29,11 @@ class RecipeCardWidget extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _AnimatedNutritionText(
-                      nutrition: recipe.nutrition,
-                      columnConstraints: columnCons),
+                  _AnimatedNutritionText(nutrition: {
+                    'calories': recipe.nutrition.calories,
+                    'protein': recipe.nutrition.protein,
+                    'prepTime': recipe.nutrition.prepTime,
+                  }, columnConstraints: columnCons),
                   _AnimatedNameWidget(
                       screenConstraints: constraints,
                       columnConstraints: columnCons,
