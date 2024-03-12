@@ -22,6 +22,8 @@ dependencies:
   sliding_up_panel: ^2.0.0+1
   flex_color_scheme: ^7.2.0
   shared_preferences: ^2.2.1
+  firebase_core: ^2.27.0 
+  cloud_firestore: ^4.15.8
 
 
 dev_dependencies: 
@@ -35,5 +37,4 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/recipes.json
     - assets/images/

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "80740378044",
+    "project_id": "recipeapp-b79b1",
+    "storage_bucket": "recipeapp-b79b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:80740378044:android:0a9b54527e2c77349bb7b9",
+        "android_client_info": {
+          "package_name": "com.sumanmaitryee.recepi_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAv2H_peFAJmj1LzyKFpv8ZL1-h43ctbzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

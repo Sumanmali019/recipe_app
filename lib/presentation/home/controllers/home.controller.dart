@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get_rx/get_rx.dart';
@@ -52,13 +52,23 @@ class HomeController extends GetxController {
     }
   }
 
-  Future<void> loadRecipes({String filePath = "assets/recipes.json"}) async {
+  Future<void> loadRecipes() async {
     try {
       isLoading(true);
-      final fetchedRecipes = await fetchRecipes(filePath);
+      // Fetch the collection from Firestore
+      QuerySnapshot querySnapshot =
+          await FirebaseFirestore.instance.collection('recipes').get();
+
+      // Map the documents to your data model
+      final fetchedRecipes = querySnapshot.docs
+          .map((doc) => Recipe.fromJson(doc.data() as Map<String, dynamic>))
+          .toList();
+
       allRecipes.assignAll(fetchedRecipes);
-      recipes.assignAll(fetchedRecipes); // Initially display all recipes.
+      recipes.assignAll(fetchedRecipes);
     } catch (e) {
+      // ignore: avoid_print
+      print(errorMessage(e.toString()));
       errorMessage(e.toString());
     } finally {
       isLoading(false);
