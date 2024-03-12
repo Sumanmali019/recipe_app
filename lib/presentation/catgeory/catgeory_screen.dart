@@ -3,9 +3,9 @@ import 'package:flutter_animate/flutter_animate.dart';
 
 import 'package:get/get.dart';
 import 'package:recepi_application/presentation/catgeory/widgets/animated_app_bar.dart';
-import 'package:recepi_application/presentation/catgeory/widgets/reciepi_ifor.dart';
+import 'package:recepi_application/presentation/catgeory/widgets/reciepi_information.dart';
 import 'package:recepi_application/presentation/catgeory/widgets/time_linr-sliding.dart';
-import 'package:recepi_application/presentation/home/wiget/home_saffold.dart';
+import 'package:recepi_application/presentation/home/home_widget/home_saffold.dart';
 import 'package:recepi_application/presentation/onbording/widgets/animated_dish_widget.dart';
 
 import 'controllers/catgeory.controller.dart';
@@ -32,7 +32,6 @@ class CatgeoryScreen extends GetView<CatgeoryController> {
                   appBarPlayTime: appBarPlayTime,
                   appBarDelayTime: appBarDelayTime,
                 ),
-               
                 SizedBox(
                   height: constraints.maxHeight * 0.04,
                 ),
