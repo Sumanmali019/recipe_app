@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AnimatedButtonWidget extends StatelessWidget {
   final double width;
@@ -36,11 +37,11 @@ class AnimatedButtonWidget extends StatelessWidget {
           child: Container(
             width: width,
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-            child: const Text(
+            child: Text(
               "Join To Drool",
               maxLines: 2,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: GoogleFonts.alice(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 24),

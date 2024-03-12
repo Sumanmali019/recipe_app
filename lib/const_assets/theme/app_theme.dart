@@ -16,44 +16,40 @@ final mainTheme = FlexThemeData.dark().copyWith(
 
       titleSmall: GoogleFonts.lato(
         textStyle: const TextStyle(
-          color: Colors.white,
+          color: Colors.red,
           fontSize: 25,
           fontWeight: FontWeight.bold,
         ),
       ),
 
+      //steps_list
       bodySmall: GoogleFonts.lato(
           fontWeight: FontWeight.bold, fontSize: 14, color: Colors.white),
-      //
-      headlineMedium:
-          const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-      //
-      titleMedium: GoogleFonts.lato(
+
+  
+
+      //steps_ingreditant
+      titleMedium: GoogleFonts.alice(
           color: Colors.white,
-          height: 1.4,
+          height: 1.6,
           fontSize: 17,
-          fontWeight: FontWeight.w700),
+          fontWeight: FontWeight.bold),
 
-      //
-      titleLarge: GoogleFonts.lato(
-          fontSize: 20, fontWeight: FontWeight.w500, color: Colors.white),
-      displaySmall: const TextStyle(
-        fontSize: 36,
+      //recepi_name
+      titleLarge: GoogleFonts.alice(
+          fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
+
+      //recepi_cal && recepi_card_cal_infro
+      labelMedium: GoogleFonts.alice(
+        fontSize: 16,
         color: Colors.white,
         fontWeight: FontWeight.bold,
       ),
-      //
-      labelMedium: GoogleFonts.lato(
-        fontSize: 12,
-        color: Colors.white,
-        fontWeight: FontWeight.bold,
-      ),
-      //
+
+      //description
       labelLarge: const TextStyle(
-          fontSize: 12, color: Colors.white, fontWeight: FontWeight.w400),
+          fontSize: 14, color: Colors.orange, fontWeight: FontWeight.w800),
     ),
-    //
-
     cardTheme: CardTheme(
         color: AppColors.bluecolur,
         elevation: 0,

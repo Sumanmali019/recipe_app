@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../const_assets/theme/app_colors.dart';
 
@@ -38,10 +39,10 @@ class FoodCategoryWidget extends StatelessWidget {
           ),
           Text(
             name,
-            style: TextStyle(
-              fontSize: 20,
-              color: isSelected ? Colors.white : Colors.black,
-            ),
+            style: GoogleFonts.alice(
+                color: isSelected ? Colors.white : Colors.black,
+                fontSize: 15,
+                fontWeight: FontWeight.bold),
           )
         ],
       ),
