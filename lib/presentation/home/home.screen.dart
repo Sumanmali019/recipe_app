@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import 'package:get/get.dart';
-import 'package:recepi_application/presentation/catgeory/widgets/catgeory_widgets.dart';
-import 'package:recepi_application/presentation/home/wiget/animated_recepiwidget.dart';
-import 'package:recepi_application/presentation/home/wiget/home_saffold.dart';
+import 'package:recepi_application/presentation/home/home_widget/catgeory_widgets.dart';
+import 'package:recepi_application/presentation/home/home_widget/animated_recepiwidget.dart';
+import 'package:recepi_application/presentation/home/home_widget/home_saffold.dart';
 
 import 'controllers/home.controller.dart';
 
@@ -33,11 +33,9 @@ class HomeScreen extends GetView<HomeController> {
           ),
           Positioned.fill(
               top: constraints.maxHeight * 0.20,
-              child: controller.isLoading.isTrue
-                  ? AnimatedRecipesWidget(
-                      constraints: constraints,
-                    )
-                  : const SizedBox()),
+              child: AnimatedRecipesWidget(
+                constraints: constraints,
+              )),
         ],
       );
     }));

@@ -19,7 +19,7 @@ class AnimatedDishWidget extends StatelessWidget {
       height: constraints.maxHeight * 0.31,
       width: constraints.maxWidth * 0.8,
       alignment: Alignment.center,
-      child: Image.asset(
+      child: Image.network(
         imageUrl,
         fit: BoxFit.contain,
       )

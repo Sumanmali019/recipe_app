@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-
 class AnimatedDishWidget extends StatelessWidget {
   final BoxConstraints constraints;
   final String imageUrl;
@@ -19,7 +18,7 @@ class AnimatedDishWidget extends StatelessWidget {
       height: constraints.maxHeight * 0.31,
       width: constraints.maxWidth * 0.8,
       alignment: Alignment.center,
-      child: Image.asset(
+      child: Image.network(
         imageUrl,
         fit: BoxFit.contain,
       )
