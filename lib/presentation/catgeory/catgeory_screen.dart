@@ -32,7 +32,6 @@ class CatgeoryScreen extends GetView<CatgeoryController> {
                   appBarPlayTime: appBarPlayTime,
                   appBarDelayTime: appBarDelayTime,
                 ),
-               
                 SizedBox(
                   height: constraints.maxHeight * 0.04,
                 ),

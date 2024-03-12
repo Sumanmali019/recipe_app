@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:recepi_application/domain/model/recipe.dart';
@@ -106,31 +107,24 @@ class _AnimatedImageWidget extends StatelessWidget {
       margin: EdgeInsets.only(
           left: columnConstraints.maxWidth * 0.05,
           top: columnConstraints.maxHeight * 0.1),
-      child: FadeInImage(
-        placeholder: AssetImage(
-            'assets/placeholder.png'), // Replace with your asset placeholder image
-        image: NetworkImage(imageUrl),
+      child: CachedNetworkImage(
+        imageUrl: imageUrl,
         fit: BoxFit.contain,
         alignment: Alignment.center,
-        imageErrorBuilder: (context, error, stackTrace) {
-          return Icon(
-              Icons.error); // Display an error icon if the image fails to load
-        },
-        placeholderErrorBuilder: (context, error, stackTrace) {
-          return Shimmer.fromColors(
-            baseColor: Colors.white12,
-            highlightColor: Colors.white30,
-            child: SizedBox(
-                height: screenConstraints.maxHeight * 0.2,
-                width: screenConstraints.maxWidth * 0.4,
-                child: const Center(
-                  child: Icon(
-                    Icons.restaurant,
-                    size: 60,
-                  ),
-                )),
-          );
-        },
+        placeholder: (context, url) => Shimmer.fromColors(
+          baseColor: Colors.white12,
+          highlightColor: Colors.white30,
+          child: SizedBox(
+              height: screenConstraints.maxHeight * 0.2,
+              width: screenConstraints.maxWidth * 0.4,
+              child: const Center(
+                child: Icon(
+                  Icons.restaurant,
+                  size: 60,
+                ),
+              )),
+        ),
+        errorWidget: (context, url, error) => Icon(Icons.error),
       ),
     ).animate(delay: 400.ms).shimmer(duration: 300.ms).flip();
   }

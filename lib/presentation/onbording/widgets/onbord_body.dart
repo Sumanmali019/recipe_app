@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:recepi_application/presentation/onbording/widgets/animated_dish_widget.dart';
 import 'package:recepi_application/presentation/onbording/widgets/onboarding_screen_export_widget.dart';
 
 class OnBoardingBodyWidget extends StatefulWidget {
