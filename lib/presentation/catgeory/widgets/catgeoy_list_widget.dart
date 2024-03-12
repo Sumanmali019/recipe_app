@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import '../../../const_assets/theme/app_colors.dart';
+
 class FoodCategoryWidget extends StatelessWidget {
   final String icon;
   final String name;
@@ -17,8 +19,8 @@ class FoodCategoryWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
-        color: isSelected ? Colors.blueAccent.shade400 : Colors.grey.shade300,
-        border: Border.all(color: Colors.white30, width: 2),
+        color: isSelected ? AppColors.bluecolur : Colors.grey.shade300,
+        // border: Border.all(color: Colors.white30, width: 2),
         borderRadius: BorderRadius.circular(25),
       ),
       alignment: Alignment.center,

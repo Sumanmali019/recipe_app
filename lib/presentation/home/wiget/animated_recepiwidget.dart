@@ -22,7 +22,7 @@ class AnimatedRecipesWidget extends StatelessWidget {
         return Center(
             child: Text(
           controller.errorMessage.value,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ));
       } else {
         return LoadedRecipesWidget(

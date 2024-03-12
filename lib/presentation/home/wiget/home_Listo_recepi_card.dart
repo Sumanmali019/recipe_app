@@ -18,6 +18,10 @@ class RecipeCardWidget extends StatelessWidget {
       height: constraints.maxHeight * 0.24,
       width: constraints.maxWidth,
       child: Card(
+        shape: RoundedRectangleBorder(
+            side: const BorderSide(color: Colors.white, width: 2.0),
+            borderRadius: BorderRadius.circular(20)),
+        elevation: 7,
         child: LayoutBuilder(builder: (context, columnCons) {
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,

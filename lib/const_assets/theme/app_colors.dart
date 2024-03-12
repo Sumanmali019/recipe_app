@@ -5,6 +5,7 @@ class AppColors {
   static final bodySmallTextColor = Colors.amberAccent[100];
   static const scaffoldBackgroundColor = Color(0xff101520);
   static const infoTextColor = Colors.white60;
-  static const onBoardingButtonColor = Colors.amberAccent;
+  static const onBoardingButtonColor = Color.fromRGBO(255, 222, 89, 1);
   static const timeLineColor = Colors.lightGreen;
+  static const bluecolur = Color.fromRGBO(0, 74, 173, 1);
 }

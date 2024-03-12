@@ -4,7 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 class FontThemeClass {
   TextStyle primaryTitle(BuildContext context,
       {Color? color, FontWeight? fontWeight}) {
-    return GoogleFonts.roboto(
+    return 
+    
+    
+    GoogleFonts.roboto(
       textStyle: const TextStyle(
         color: Color.fromRGBO(0, 74, 173, 1),
         letterSpacing: .5,
