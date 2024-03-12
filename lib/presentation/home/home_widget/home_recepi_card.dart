@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:recepi_application/domain/model/recipe.dart';
+import 'package:shimmer/shimmer.dart';
 
 class RecipeCardWidget extends StatelessWidget {
   final Recipe recipe;
@@ -100,16 +101,38 @@ class _AnimatedImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: screenConstraints.maxHeight * 0.2,
-        width: screenConstraints.maxWidth * 0.4,
-        margin: EdgeInsets.only(
-            left: columnConstraints.maxWidth * 0.05,
-            top: columnConstraints.maxHeight * 0.1),
-        child: Image.network(
-          imageUrl,
-          fit: BoxFit.contain,
-          alignment: Alignment.center,
-        )).animate(delay: 400.ms).shimmer(duration: 300.ms).flip();
+      height: screenConstraints.maxHeight * 0.2,
+      width: screenConstraints.maxWidth * 0.4,
+      margin: EdgeInsets.only(
+          left: columnConstraints.maxWidth * 0.05,
+          top: columnConstraints.maxHeight * 0.1),
+      child: FadeInImage(
+        placeholder: AssetImage(
+            'assets/placeholder.png'), // Replace with your asset placeholder image
+        image: NetworkImage(imageUrl),
+        fit: BoxFit.contain,
+        alignment: Alignment.center,
+        imageErrorBuilder: (context, error, stackTrace) {
+          return Icon(
+              Icons.error); // Display an error icon if the image fails to load
+        },
+        placeholderErrorBuilder: (context, error, stackTrace) {
+          return Shimmer.fromColors(
+            baseColor: Colors.white12,
+            highlightColor: Colors.white30,
+            child: SizedBox(
+                height: screenConstraints.maxHeight * 0.2,
+                width: screenConstraints.maxWidth * 0.4,
+                child: const Center(
+                  child: Icon(
+                    Icons.restaurant,
+                    size: 60,
+                  ),
+                )),
+          );
+        },
+      ),
+    ).animate(delay: 400.ms).shimmer(duration: 300.ms).flip();
   }
 }
 
