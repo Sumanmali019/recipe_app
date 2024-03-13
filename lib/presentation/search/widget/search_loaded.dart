@@ -29,8 +29,7 @@ class LoadedsearchRecipesWidget extends StatelessWidget {
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => EdamamRecipeDetail(
-                      recipeModel: controller.searchResults[index]),
+                  builder: (context) => EdamamRecipeDetail(recipeModel: recipe),
                 ),
               ),
               child: SearchRecipeCardWidget(

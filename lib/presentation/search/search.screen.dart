@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:recepi_application/presentation/search/controllers/search.controller.dart';
-import 'package:recepi_application/presentation/search/widget/loading_anumatinf.dart';
+import 'package:recepi_application/presentation/search/widget/search_loaded.dart';
 
 import '../home/home_widget/home_saffold.dart';
 

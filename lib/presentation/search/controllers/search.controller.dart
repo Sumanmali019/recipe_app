@@ -28,4 +28,14 @@ class SearchrecepiController extends GetxController {
       searchResults.clear();
     }
   }
+
+  Rx<EdamamRecipeModel> recipe = EdamamRecipeModel(
+          title: 'test',
+          image: '',
+          kcal: 1,
+          servings: 1,
+          cookingTime: 1,
+          ingredients: ['1', '2'],
+          url: '')
+      .obs;
 }

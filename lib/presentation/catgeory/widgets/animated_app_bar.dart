@@ -25,13 +25,16 @@ class AnimatedAppBarWidget extends StatelessWidget {
             },
             icon: const Icon(
               Icons.arrow_back_ios_new,
-              size: 25,
+              size: 16,
               color: Colors.black,
             )),
         Text(
           name.toUpperCase(),
           style: GoogleFonts.alice(
-              color: Colors.black87, fontSize: 28, fontWeight: FontWeight.w900),
+            color: Colors.black87,
+            fontSize: 16,
+            fontWeight: FontWeight.w900,
+          ),
         ),
         IconButton(
             onPressed: () {},
