@@ -22,16 +22,24 @@ class AnimatedInfoWidget extends StatelessWidget {
       height: constraints.maxHeight * 0.1,
       margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-          color: Color(0xff182032),
+          color: const Color(0xff182032),
           border: Border.all(color: Colors.white, width: 2),
           borderRadius: BorderRadius.circular(20)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           _InfoViewer(
-              icon: Icons.monitor_heart, amount: nutrition["calories"]!),
-          _InfoViewer(icon: Icons.people, amount: nutrition["Serveing"]!),
-          _InfoViewer(icon: Icons.timer, amount: nutrition["prepTime"]!),
+            icon: Icons.monitor_heart,
+            amount: "${nutrition["calories"]} cal",
+          ),
+          _InfoViewer(
+            icon: Icons.people,
+            amount: "${nutrition["Serving"]} person",
+          ),
+          _InfoViewer(
+            icon: Icons.timer,
+            amount: "${nutrition["prepTime"]} min",
+          ),
         ]
             .animate(interval: 200.ms, delay: infoDelayTime + 400.ms)
             .fadeIn(duration: infoPlayTime, curve: Curves.decelerate)
@@ -43,7 +51,7 @@ class AnimatedInfoWidget extends StatelessWidget {
 
 class _InfoViewer extends StatelessWidget {
   final IconData icon;
-  final num amount;
+  final String amount;
   const _InfoViewer({
     Key? key,
     required this.icon,

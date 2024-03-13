@@ -33,7 +33,7 @@ class AnimatedSlidingPanel extends AnimatedWidget {
           horizontal: constraints.maxWidth * 0.4, vertical: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.white, width: 2),
+        border: Border.all(color: Colors.white, width: 1),
       ),
     );
     return SlidingUpPanel(

@@ -32,12 +32,12 @@ Map<String, dynamic> _$RecipeToJson(Recipe instance) => <String, dynamic>{
 
 Nutrition _$NutritionFromJson(Map<String, dynamic> json) => Nutrition(
       calories: json['calories'] as int,
-      protein: json['protein'] as int,
+      serving: json['serving'] as int,
       prepTime: json['prepTime'] as int,
     );
 
 Map<String, dynamic> _$NutritionToJson(Nutrition instance) => <String, dynamic>{
       'calories': instance.calories,
-      'protein': instance.protein,
+      'serving': instance.serving,
       'prepTime': instance.prepTime,
     };

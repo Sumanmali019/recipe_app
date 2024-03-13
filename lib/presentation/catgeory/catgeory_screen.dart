@@ -46,7 +46,7 @@ class CatgeoryScreen extends GetView<CatgeoryController> {
                 AnimatedInfoWidget(
                     nutrition: {
                       'calories': controller.recipe.value.nutrition.calories,
-                      'Serveing': controller.recipe.value.nutrition.protein,
+                      'Serving': controller.recipe.value.nutrition.serving,
                       'prepTime': controller.recipe.value.nutrition.prepTime,
                     },
                     infoDelayTime: infoDelayTime,

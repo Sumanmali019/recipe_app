@@ -29,12 +29,12 @@ class Recipe {
 @JsonSerializable(explicitToJson: true)
 class Nutrition {
   final int calories;
-  final int protein;
+  final int serving;
   final int prepTime;
 
   Nutrition({
     required this.calories,
-    required this.protein,
+    required this.serving,
     required this.prepTime,
   });
   factory Nutrition.fromJson(Map<String, dynamic> json) =>

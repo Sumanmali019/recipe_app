@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
-import 'package:recepi_application/presentation/search/widget/edaminr_details.dart';
+import 'package:recepi_application/presentation/search/widget/edamin_details.dart';
 import 'package:recepi_application/presentation/search/widget/search_recepi_card.dart';
 
 import '../../../domain/model/edaman.dart';

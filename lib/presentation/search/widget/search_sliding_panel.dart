@@ -46,7 +46,7 @@ class SearchAnimatedSlidingPanel extends AnimatedWidget {
         minHeight:
             constraints.maxHeight * (listenable as Animation<double>).value,
         borderRadius: BorderRadius.circular(30),
-        border: Border.all(color: Colors.white, width: 2),
+        border: Border.all(color: Colors.white, width: 1),
         body: body,
         panel: Column(
           children: [
@@ -95,7 +95,6 @@ class _EdamamCookingState extends State<EdamamCooking> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.cardColor,
       body: InAppWebView(
         gestureRecognizers: {
           Factory<VerticalDragGestureRecognizer>(

@@ -36,6 +36,11 @@ class SearchRecipeCardWidget extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  _AnimatedNutritionText(nutrition: {
+                    'calories': recipe.kcal,
+                    'serving': recipe.servings,
+                    'prepTime': recipe.cookingTime,
+                  }, columnConstraints: columnCons),
                   _AnimatedNameWidget(
                       screenConstraints: constraints,
                       columnConstraints: columnCons,
@@ -67,11 +72,13 @@ class _AnimatedImageWidget extends StatelessWidget {
       height: screenConstraints.maxHeight * 0.2,
       width: screenConstraints.maxWidth * 0.4,
       margin: EdgeInsets.only(
-          left: columnConstraints.maxWidth * 0.05,
-          top: columnConstraints.maxHeight * 0.1),
+        left: columnConstraints.maxWidth * 0.05,
+        top: columnConstraints.maxHeight * 0.1,
+        bottom: columnConstraints.maxHeight * 0.1,
+      ),
       child: CachedNetworkImage(
         imageUrl: imageUrl,
-        fit: BoxFit.contain,
+        fit: BoxFit.fitHeight,
         alignment: Alignment.center,
         placeholder: (context, url) => Shimmer.fromColors(
           baseColor: Colors.white12,
@@ -118,6 +125,36 @@ class _AnimatedNameWidget extends StatelessWidget {
           .animate()
           .fadeIn(duration: 300.ms, delay: 450.ms, curve: Curves.decelerate)
           .slideX(begin: 0.2, end: 0),
+    );
+  }
+}
+
+class _AnimatedNutritionText extends StatelessWidget {
+  final Map<String, dynamic> nutrition;
+  final BoxConstraints columnConstraints;
+  const _AnimatedNutritionText({
+    Key? key,
+    required this.nutrition,
+    required this.columnConstraints,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(
+          top: columnConstraints.maxHeight * 0.2,
+          left: columnConstraints.maxWidth * 0.04),
+      child: Text(
+              "${nutrition["calories"]} cal \t\t\t\t${nutrition["serving"]} person",
+              style: Theme.of(context).textTheme.labelMedium //label medium
+              )
+          .animate()
+          .scaleXY(
+              begin: 0,
+              end: 1,
+              delay: 300.ms,
+              duration: 400.ms,
+              curve: Curves.decelerate),
     );
   }
 }

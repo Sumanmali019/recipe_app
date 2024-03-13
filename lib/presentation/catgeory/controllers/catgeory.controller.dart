@@ -22,7 +22,7 @@ class CatgeoryController extends GetxController {
       "Add the tomato sauce and red wine and simmer for 1 hour.",
       "Toss with cooked spaghetti and serve."
     ],
-    nutrition: Nutrition(calories: 650, protein: 35, prepTime: 60),
+    nutrition: Nutrition(calories: 650, serving: 1, prepTime: 60),
   ).obs;
 
   @override

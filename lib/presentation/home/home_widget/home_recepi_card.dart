@@ -37,7 +37,7 @@ class RecipeCardWidget extends StatelessWidget {
                 children: [
                   _AnimatedNutritionText(nutrition: {
                     'calories': recipe.nutrition.calories,
-                    'protein': recipe.nutrition.protein,
+                    'serving': recipe.nutrition.serving,
                     'prepTime': recipe.nutrition.prepTime,
                   }, columnConstraints: columnCons),
                   _AnimatedNameWidget(
@@ -74,7 +74,7 @@ class _AnimatedNutritionText extends StatelessWidget {
           top: columnConstraints.maxHeight * 0.2,
           left: columnConstraints.maxWidth * 0.04),
       child: Text(
-              "${nutrition["calories"]}cal \t\t\t\t${nutrition["protein"]}protein",
+              "${nutrition["calories"]} cal \t\t\t\t${nutrition["serving"]} person",
               style: Theme.of(context).textTheme.labelMedium //label medium
               )
           .animate()

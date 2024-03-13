@@ -10,32 +10,23 @@ class SearchrecepiController extends GetxController {
       EdamamApiService('bb937e3229ccafaaba075384dd76260e');
   var searchResults = <EdamamRecipeModel>[].obs;
   var errorMessage = ''.obs;
-  var isLoading = true.obs;
+  var isLoading = false.obs;
+
+  var lastSearchQuery = ''.obs;
 
   var searchrecipes = RxList<EdamamRecipeModel>();
 
-  void searchRecipes() async {
-    final query = searchController.text;
+  void searchRecipes(String query) async {
+    lastSearchQuery.value = query;
+    isLoading.value = true;
     if (query.isNotEmpty) {
       final results = await apiService.searchRecipes(query);
-      if (results.isNotEmpty) {
-        searchResults.value =
-            results.map((recipe) => EdamamRecipeModel.fromMap(recipe)).toList();
-      } else {
-        searchResults.clear();
-      }
+      searchResults.value = results.isNotEmpty
+          ? results.map((recipe) => EdamamRecipeModel.fromMap(recipe)).toList()
+          : [];
     } else {
       searchResults.clear();
     }
+    isLoading.value = false;
   }
-
-  Rx<EdamamRecipeModel> recipe = EdamamRecipeModel(
-          title: 'test',
-          image: '',
-          kcal: 1,
-          servings: 1,
-          cookingTime: 1,
-          ingredients: ['1', '2'],
-          url: '')
-      .obs;
 }

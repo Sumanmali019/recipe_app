@@ -47,7 +47,7 @@ class RecipeShimmerCard extends StatelessWidget {
                       baseColor: Colors.white12,
                       highlightColor: Colors.white30,
                       child: Text(
-                        " 0cal\t\t\t\t0g protein",
+                        " 0cal\t\t\t\t0g serving",
                         style: TextStyle(
                             fontSize: 12, color: Colors.amberAccent[100]),
                       ),
