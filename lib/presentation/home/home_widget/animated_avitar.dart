@@ -8,13 +8,13 @@ import '../../../const_assets/assets.dart';
 import '../../login/login.screen.dart';
 
 class AnimatedAvatarWidget extends StatelessWidget {
-  // final Duration avatarPlayDuration;
-  // final Duration avatarWaitingDuration;
+  final Duration avatarPlayDuration;
+  final Duration avatarWaitingDuration;
   final BoxConstraints constraints;
   const AnimatedAvatarWidget({
     Key? key,
-    // required this.avatarPlayDuration,
-    // required this.avatarWaitingDuration,
+    required this.avatarPlayDuration,
+    required this.avatarWaitingDuration,
     required this.constraints,
   }) : super(key: key);
 
@@ -25,7 +25,7 @@ class AnimatedAvatarWidget extends StatelessWidget {
       left: constraints.maxWidth * 0.52,
       child: CircleAvatar(
         radius: 18,
-        backgroundColor: Colors.blue.shade900,
+        backgroundColor: Colors.white,
         child: InkWell(
             onTap: () {
               Get.toNamed('/login');
@@ -36,9 +36,9 @@ class AnimatedAvatarWidget extends StatelessWidget {
           .scaleXY(
               begin: 0,
               end: 2,
-              // duration: avatarPlayDuration,
+              duration: avatarPlayDuration,
               curve: Curves.easeInOutSine)
-          // .then(delay: 0)
+          // .then(delay: avatarWaitingDuration)
           .slide(begin: Offset.zero, end: const Offset(4.1, -5)),
     );
   }
