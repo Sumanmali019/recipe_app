@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import 'package:get/get.dart';
+import 'package:recepi_application/presentation/home/home_widget/animated_avitar.dart';
+import 'package:recepi_application/presentation/home/home_widget/animated_search.dart';
 import 'package:recepi_application/presentation/home/home_widget/catgeory_widgets.dart';
 import 'package:recepi_application/presentation/home/home_widget/animated_recepiwidget.dart';
 import 'package:recepi_application/presentation/home/home_widget/home_saffold.dart';
@@ -15,6 +17,7 @@ class HomeScreen extends GetView<HomeController> {
     return AnnotatedScaffold(
         child: LayoutBuilder(builder: (context, constraints) {
       final avatarWaitingDuration = 400.ms;
+      final avatarPlayDuration = 500.ms;
       final nameDelayDuration =
           avatarWaitingDuration + avatarWaitingDuration + 200.ms;
       final namePlayDuration = 800.ms;
@@ -24,6 +27,16 @@ class HomeScreen extends GetView<HomeController> {
 
       return Stack(
         children: [
+          // AnimatedAvatarWidget(
+          //   constraints: constraints,
+          //   avatarWaitingDuration: avatarWaitingDuration,
+          //   avatarPlayDuration: avatarPlayDuration,
+          // ),
+          AnimatedNameWidget(
+            constraints: constraints,
+            namePlayDuration: namePlayDuration,
+            nameDelayDuration: nameDelayDuration,
+          ),
           AnimatedCategoryList(
             constraints: constraints,
             categoryListPlayDuration: categoryListPlayDuration,

@@ -48,7 +48,7 @@ class Nav {
     ),
     GetPage(
       name: Routes.SEARCH,
-      page: () => const SearchScreen(),
+      page: () => SearchScreen(),
       binding: SearchControllerBinding(),
     ),
   ];

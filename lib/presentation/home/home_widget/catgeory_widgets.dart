@@ -24,9 +24,9 @@ class AnimatedCategoryList extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-        top: constraints.maxHeight * 0.06,
-        height: 45,
-        width: constraints.maxWidth,
+        top: constraints.maxHeight * 0.11,
+        height: 65,
+        width: constraints.maxWidth * 0.98,
         child: Obx(() {
           return ListView(
             scrollDirection: Axis.horizontal,
@@ -34,7 +34,7 @@ class AnimatedCategoryList extends GetView<HomeController> {
             children: List.generate(
                 categories.length,
                 (index) => Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 16),
+                      padding: const EdgeInsets.only(left: 10, right: 10),
                       child: GestureDetector(
                         onTap: () => onCategorySelected(categories[index].name),
                         child: FoodCategoryWidget(
