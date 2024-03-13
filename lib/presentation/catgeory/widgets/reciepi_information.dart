@@ -28,9 +28,10 @@ class AnimatedInfoWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _InfoViewer(name: 'Kcal', amount: nutrition["calories"]!),
-          _InfoViewer(name: 'Protein', amount: nutrition["protein"]!),
-          _InfoViewer(name: 'Prep Time', amount: nutrition["prepTime"]!),
+          _InfoViewer(
+              icon: Icons.monitor_heart, amount: nutrition["calories"]!),
+          _InfoViewer(icon: Icons.people, amount: nutrition["Serveing"]!),
+          _InfoViewer(icon: Icons.timer, amount: nutrition["prepTime"]!),
         ]
             .animate(interval: 200.ms, delay: infoDelayTime + 400.ms)
             .fadeIn(duration: infoPlayTime, curve: Curves.decelerate)
@@ -41,11 +42,11 @@ class AnimatedInfoWidget extends StatelessWidget {
 }
 
 class _InfoViewer extends StatelessWidget {
-  final String name;
+  final IconData icon;
   final num amount;
   const _InfoViewer({
     Key? key,
-    required this.name,
+    required this.icon,
     required this.amount,
   }) : super(key: key);
 
@@ -56,10 +57,12 @@ class _InfoViewer extends StatelessWidget {
       children: [
         Text(
           amount.toString(),
-          style:
-              Theme.of(context).textTheme.labelMedium!.copyWith(fontSize: 18),
+          style: Theme.of(context)
+              .textTheme
+              .labelMedium!
+              .copyWith(fontSize: 18, color: Colors.white),
         ),
-        Text(name, style: Theme.of(context).textTheme.bodySmall),
+        Icon(icon, color: Colors.white),
       ],
     );
   }

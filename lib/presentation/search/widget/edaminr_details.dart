@@ -55,7 +55,7 @@ class _EdamamRecipeDetailState extends State<EdamamRecipeDetail> {
                 AnimatedInfoWidget(
                     nutrition: {
                       'calories': widget.recipeModel.kcal,
-                      'protein': widget.recipeModel.servings,
+                      'Serveing': widget.recipeModel.servings,
                       'prepTime': widget.recipeModel.cookingTime,
                     },
                     infoDelayTime: infoDelayTime,
