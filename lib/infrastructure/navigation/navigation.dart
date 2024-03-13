@@ -46,5 +46,10 @@ class Nav {
       page: () => const CatgeoryScreen(),
       binding: CatgeoryControllerBinding(),
     ),
+    GetPage(
+      name: Routes.SEARCH,
+      page: () => const SearchScreen(),
+      binding: SearchControllerBinding(),
+    ),
   ];
 }

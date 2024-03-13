@@ -30,14 +30,14 @@ class HomeController extends GetxController {
       icon: "🥦",
       name: "Healthy",
     ),
-    const FoodCategoryWidget(
-      icon: "🍲",
-      name: "Vegetarian",
-    ),
-    const FoodCategoryWidget(
-      icon: "🍿",
-      name: "Diet",
-    ),
+    // const FoodCategoryWidget(
+    //   icon: "🍲",
+    //   name: "Vegetarian",
+    // ),
+    // const FoodCategoryWidget(
+    //   icon: "🍿",
+    //   name: "Diet",
+    // ),
   ].obs;
 
   @override
