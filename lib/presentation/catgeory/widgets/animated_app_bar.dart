@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AnimatedAppBarWidget extends StatelessWidget {
   final String name;
@@ -16,29 +17,44 @@ class AnimatedAppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment:
+          MainAxisAlignment.center, // Align children to the center of the row.
       children: [
-        IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios_new,
-              size: 25,
-            )),
-        Text(
-          name,
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge!
-              .copyWith(color: Colors.white),
+        Expanded(
+          child: Align(
+            alignment:
+                Alignment.centerLeft, // Align the icon button to the left.
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios_new,
+                size: 22,
+                color: Colors.black,
+              ),
+            ),
+          ),
         ),
-        IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.favorite_outline,
-              size: 25,
-            ))
+        Expanded(
+          flex:
+              2, // Give the text widget twice the space compared to the icon button.
+          child: Text(
+            name.toUpperCase(),
+            textAlign: TextAlign.center, // Center align the text.
+            style: GoogleFonts.alice(
+              color: Colors.black87,
+              fontSize: 16,
+              fontWeight: FontWeight.w900,
+            ),
+            overflow: TextOverflow.clip,
+            maxLines: 2,
+          ),
+        ),
+        Expanded(
+          child:
+              Container(), // Placeholder to balance the row and keep the text centered.
+        ),
       ].animate(interval: 200.ms, delay: appBarDelayTime).scaleXY(
           begin: 0, end: 1, duration: appBarPlayTime, curve: Curves.decelerate),
     );

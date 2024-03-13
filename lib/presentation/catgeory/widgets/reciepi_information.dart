@@ -22,15 +22,24 @@ class AnimatedInfoWidget extends StatelessWidget {
       height: constraints.maxHeight * 0.1,
       margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-          color: Color(0xff182032),
+          color: const Color(0xff182032),
           border: Border.all(color: Colors.white, width: 2),
           borderRadius: BorderRadius.circular(20)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _InfoViewer(name: 'Kcal', amount: nutrition["calories"]!),
-          _InfoViewer(name: 'Protein', amount: nutrition["protein"]!),
-          _InfoViewer(name: 'Prep Time', amount: nutrition["prepTime"]!),
+          _InfoViewer(
+            icon: Icons.monitor_heart,
+            amount: "${nutrition["calories"]} cal",
+          ),
+          _InfoViewer(
+            icon: Icons.people,
+            amount: "${nutrition["Serving"]} person",
+          ),
+          _InfoViewer(
+            icon: Icons.timer,
+            amount: "${nutrition["prepTime"]} min",
+          ),
         ]
             .animate(interval: 200.ms, delay: infoDelayTime + 400.ms)
             .fadeIn(duration: infoPlayTime, curve: Curves.decelerate)
@@ -41,11 +50,11 @@ class AnimatedInfoWidget extends StatelessWidget {
 }
 
 class _InfoViewer extends StatelessWidget {
-  final String name;
-  final num amount;
+  final IconData icon;
+  final String amount;
   const _InfoViewer({
     Key? key,
-    required this.name,
+    required this.icon,
     required this.amount,
   }) : super(key: key);
 
@@ -56,10 +65,12 @@ class _InfoViewer extends StatelessWidget {
       children: [
         Text(
           amount.toString(),
-          style:
-              Theme.of(context).textTheme.labelMedium!.copyWith(fontSize: 18),
+          style: Theme.of(context)
+              .textTheme
+              .labelMedium!
+              .copyWith(fontSize: 18, color: Colors.white),
         ),
-        Text(name, style: Theme.of(context).textTheme.bodySmall),
+        Icon(icon, color: Colors.white),
       ],
     );
   }

@@ -2,6 +2,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:recepi_application/const_assets/theme/app_colors.dart';
 import 'package:shimmer/shimmer.dart';
 
 class AnimatedDishWidget extends StatelessWidget {
@@ -26,8 +27,8 @@ class AnimatedDishWidget extends StatelessWidget {
         fit: BoxFit.contain,
         alignment: Alignment.center,
         placeholder: (context, url) => Shimmer.fromColors(
-          baseColor: Colors.white12,
-          highlightColor: Colors.white30,
+          baseColor: AppColors.cardColor,
+          highlightColor: AppColors.cardColor,
           child: SizedBox(
               height: constraints.maxHeight * 0.2,
               width: constraints.maxWidth * 0.4,

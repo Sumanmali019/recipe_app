@@ -1,18 +1,20 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:recepi_application/const_assets/theme/app_colors.dart';
-import 'package:recepi_application/domain/model/recipe.dart';
-import 'package:recepi_application/presentation/catgeory/widgets/ingredient_card.dart';
-import 'package:recepi_application/presentation/catgeory/widgets/time_line_widget.dart';
+import 'package:recepi_application/domain/model/edaman.dart';
+import 'package:recepi_application/presentation/search/widget/edamin_ingrdient.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
-class AnimatedSlidingPanel extends AnimatedWidget {
-  final Recipe recipe;
+class SearchAnimatedSlidingPanel extends AnimatedWidget {
+  final EdamamRecipeModel recipe;
   final Widget body;
   final BoxConstraints constraints;
   final AnimationController ingredientController;
   final Duration baseDelayTime;
   final Duration slidingDuration;
-  const AnimatedSlidingPanel(
+  const SearchAnimatedSlidingPanel(
       {super.key,
       required this.recipe,
       required this.body,
@@ -33,7 +35,7 @@ class AnimatedSlidingPanel extends AnimatedWidget {
           horizontal: constraints.maxWidth * 0.4, vertical: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Colors.white, width: 1),
+        border: Border.all(color: Colors.white, width: 2),
       ),
     );
     return SlidingUpPanel(
@@ -44,14 +46,14 @@ class AnimatedSlidingPanel extends AnimatedWidget {
         minHeight:
             constraints.maxHeight * (listenable as Animation<double>).value,
         borderRadius: BorderRadius.circular(30),
-        border: Border.all(color: Colors.white, width: 2),
+        border: Border.all(color: Colors.white, width: 1),
         body: body,
         panel: Column(
           children: [
             const SizedBox(
               height: 30,
             ),
-            IngredientsCardList(
+            SerachIngredientsCardList(
               ingredientController: ingredientController,
               recipe: recipe,
               delayTime: baseDelayTime,
@@ -64,12 +66,50 @@ class AnimatedSlidingPanel extends AnimatedWidget {
               color: Colors.white54,
             ),
             Expanded(
-                child: TimeLineWidget(
-              steps: recipe.steps,
-              isCheckedList:
-                  List.generate(recipe.steps.length, (index) => false),
-            ))
+              child: EdamamCooking(edamamrecipeModel: recipe),
+            )
           ],
         ));
+  }
+}
+
+class EdamamCooking extends StatefulWidget {
+  final EdamamRecipeModel edamamrecipeModel;
+  const EdamamCooking({required this.edamamrecipeModel, super.key});
+
+  @override
+  State<EdamamCooking> createState() => _EdamamCookingState();
+}
+
+class _EdamamCookingState extends State<EdamamCooking> {
+  @override
+  void initState() {
+    if (widget.edamamrecipeModel.url.contains('http://')) {
+      widget.edamamrecipeModel.url =
+          widget.edamamrecipeModel.url.replaceFirst('http://', 'https://');
+    }
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: InAppWebView(
+        gestureRecognizers: {
+          Factory<VerticalDragGestureRecognizer>(
+              () => VerticalDragGestureRecognizer())
+        },
+        initialUrlRequest: URLRequest(
+          url: Uri.parse(widget.edamamrecipeModel.url),
+        ),
+        // ignore: deprecated_member_use
+        initialOptions: InAppWebViewGroupOptions(
+          // ignore: deprecated_member_use
+          crossPlatform: InAppWebViewOptions(),
+        ),
+        onWebViewCreated: (InAppWebViewController controller) {},
+      ),
+    );
   }
 }

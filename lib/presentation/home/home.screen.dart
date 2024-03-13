@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import 'package:get/get.dart';
+import 'package:recepi_application/presentation/home/home_widget/animated_search.dart';
 import 'package:recepi_application/presentation/home/home_widget/catgeory_widgets.dart';
 import 'package:recepi_application/presentation/home/home_widget/animated_recepiwidget.dart';
 import 'package:recepi_application/presentation/home/home_widget/home_saffold.dart';
@@ -24,6 +25,16 @@ class HomeScreen extends GetView<HomeController> {
 
       return Stack(
         children: [
+          // AnimatedAvatarWidget(
+          //   constraints: constraints,
+          //   avatarWaitingDuration: avatarWaitingDuration,
+          //   avatarPlayDuration: avatarPlayDuration,
+          // ),
+          AnimatedNameWidget(
+            constraints: constraints,
+            namePlayDuration: namePlayDuration,
+            nameDelayDuration: nameDelayDuration,
+          ),
           AnimatedCategoryList(
             constraints: constraints,
             categoryListPlayDuration: categoryListPlayDuration,
