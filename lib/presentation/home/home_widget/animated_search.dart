@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
-import 'package:recepi_application/const_assets/theme/app_colors.dart';
 
 class AnimatedsearchWidget extends StatelessWidget {
   final Duration namePlayDuration;

@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 import 'package:get/get.dart';
-import 'package:recepi_application/presentation/home/home_widget/animated_avitar.dart';
+import 'package:recepi_application/presentation/home/home_widget/animated_avatar.dart';
 import 'package:recepi_application/presentation/home/home_widget/animated_search.dart';
 import 'package:recepi_application/presentation/home/home_widget/catgeory_widgets.dart';
 import 'package:recepi_application/presentation/home/home_widget/animated_recepiwidget.dart';
 import 'package:recepi_application/presentation/home/home_widget/home_saffold.dart';
+import 'package:recepi_application/presentation/login/controllers/login.controller.dart';
 
 import 'controllers/home.controller.dart';
 
@@ -14,6 +15,7 @@ class HomeScreen extends GetView<HomeController> {
   const HomeScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    Get.put(LoginController());
     return AnnotatedScaffold(
         child: LayoutBuilder(builder: (context, constraints) {
       final avatarWaitingDuration = 400.ms;
