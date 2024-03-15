@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
+import 'package:recepi_application/const_assets/theme/app_colors.dart';
 import 'package:sign_in_button/sign_in_button.dart';
-import 'controllers/login.controller.dart'; // Adjust the import path as necessary.
+import 'controllers/login.controller.dart';
 
 class LoginScreen extends GetView<LoginController> {
   const LoginScreen({Key? key}) : super(key: key);
@@ -10,12 +12,28 @@ class LoginScreen extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Screen'),
+        leading: InkWell(
+          onTap: () {
+            Get.back();
+          },
+          child: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+        ),
+        backgroundColor: AppColors.onBoardingButtonColor,
+        title: Obx(() {
+          return Text(
+            controller.user == null ? 'Login' : 'Profile',
+            style: const TextStyle(color: Colors.black),
+          );
+        }),
         centerTitle: true,
         actions: [
-          // Logout button in the app bar, only shown when the user is logged in
           Obx(() => controller.user != null
               ? IconButton(
+                  color: Colors.red,
+                  iconSize: 30,
                   icon: const Icon(Icons.logout),
                   onPressed: () {
                     controller.signOut();
@@ -27,19 +45,50 @@ class LoginScreen extends GetView<LoginController> {
       body: Center(
         child: Obx(() {
           if (controller.user == null) {
-            // User is not logged in, show the login button
-            return SizedBox(
-              height: 50,
-              width: 300,
-              child: SignInButton(
-                Buttons.google,
-                onPressed: () {
-                  controller.signInWithGoogle();
-                },
-              ),
+            return Stack(
+              children: [
+                Column(
+                  children: [
+                    Container(
+                      width: Get.width,
+                      height: Get.height * 0.07,
+                      decoration: const BoxDecoration(
+                        color: Color.fromRGBO(255, 222, 89, 1),
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(34),
+                          bottomRight: Radius.circular(45),
+                        ),
+                      ),
+                    ),
+                    Lottie.asset("assets/images/login.json",
+                        animate: true,
+                        reverse: true,
+                        repeat: true,
+                        fit: BoxFit.fitHeight),
+                    const SizedBox(
+                      height: 35,
+                    ),
+                    SizedBox(
+                      height: 55,
+                      width: 360,
+                      child: SignInButton(
+                        Buttons.google,
+                        shape: ShapeBorder.lerp(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0)),
+                            const CircleBorder(),
+                            2),
+                        elevation: 12,
+                        onPressed: () {
+                          controller.signInWithGoogle();
+                        },
+                      ),
+                    ),
+                  ],
+                )
+              ],
             );
           } else {
-            // User is logged in, show user details
             final user = controller.user;
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
