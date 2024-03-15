@@ -72,7 +72,12 @@ class LoginController extends GetxController {
       );
       await userDoc.set(newUser.toJson());
     } else {
-      await userDoc.update({'lastOpenOrLogin': DateTime.now()});
+      // Existing user: fetch and set favorite recipes
+      UserModel userModel =
+          UserModel.fromJson(snapshot.data() as Map<String, dynamic>);
+      favoriteRecipeIds.clear();
+      favoriteRecipeIds.addAll(userModel.favoriteRecipes.map((r) => r.id));
+      await userDoc.update({'lastOpen': DateTime.now()});
     }
   }
 
@@ -139,6 +144,7 @@ class LoginController extends GetxController {
       });
     }
   }
+
 
   RxList<String> favoriteRecipeIds = RxList<String>();
 
