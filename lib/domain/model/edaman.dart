@@ -18,7 +18,6 @@ class EdamamRecipeModel {
     required this.url,
   }) : takedingredients = List<bool>.filled(ingredients.length, false);
 
-  // Method to convert a Map to a RecipeModel
   factory EdamamRecipeModel.fromMap(Map<String, dynamic> map) {
     return EdamamRecipeModel(
       title: map['recipe']['label'],
