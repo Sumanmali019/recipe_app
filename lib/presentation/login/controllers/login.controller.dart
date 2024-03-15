@@ -95,32 +95,32 @@ class LoginController extends GetxController {
 
   Future<void> addFavoriteRecipe(Recipe recipe) async {
     User? firebaseUser = FirebaseAuth.instance.currentUser;
-    if (firebaseUser != null) {
-      DocumentReference userDocRef =
-          _firestore.collection('users').doc(firebaseUser.uid);
-      await _firestore.runTransaction((transaction) async {
-        DocumentSnapshot snapshot = await transaction.get(userDocRef);
-        if (snapshot.exists) {
-          UserModel user =
-              UserModel.fromJson(snapshot.data() as Map<String, dynamic>);
-          if (!user.favoriteRecipes.any((r) => r.id == recipe.id)) {
-            user.favoriteRecipes.add(recipe);
-            transaction.update(userDocRef, {
-              'favoriteRecipes':
-                  user.favoriteRecipes.map((r) => r.toJson()).toList()
-            });
-          }
-        }
-      });
-    }
     if (!favoriteRecipeIds.contains(recipe.id)) {
       favoriteRecipeIds.add(recipe.id);
-      // Perform Firestore update as well
+      if (firebaseUser != null) {
+        DocumentReference userDocRef =
+            _firestore.collection('users').doc(firebaseUser.uid);
+        await _firestore.runTransaction((transaction) async {
+          DocumentSnapshot snapshot = await transaction.get(userDocRef);
+          if (snapshot.exists) {
+            UserModel user =
+                UserModel.fromJson(snapshot.data() as Map<String, dynamic>);
+            if (!user.favoriteRecipes.any((r) => r.id == recipe.id)) {
+              user.favoriteRecipes.add(recipe);
+              transaction.update(userDocRef, {
+                'favoriteRecipes':
+                    user.favoriteRecipes.map((r) => r.toJson()).toList()
+              });
+            }
+          }
+        });
+      }
     }
   }
 
   Future<void> removeFavoriteRecipe(Recipe recipe) async {
     User? firebaseUser = FirebaseAuth.instance.currentUser;
+
     if (firebaseUser != null) {
       DocumentReference userDocRef =
           _firestore.collection('users').doc(firebaseUser.uid);
@@ -135,16 +135,14 @@ class LoginController extends GetxController {
                 user.favoriteRecipes.map((r) => r.toJson()).toList()
           });
         }
+        favoriteRecipeIds.remove(recipe.id);
       });
     }
-    favoriteRecipeIds.remove(recipe.id);
   }
 
-  // This list will hold the IDs of the favorite recipes for reactivity.
   RxList<String> favoriteRecipeIds = RxList<String>();
 
   bool isRecipeFavorite(Recipe recipe) {
-    // Check if the recipe ID is in the observable list
     return favoriteRecipeIds.contains(recipe.id);
   }
 

@@ -84,11 +84,11 @@ class AnimatedAppBarWidget extends StatelessWidget {
           icon: Obx(() {
             bool isFavorite =
                 Get.find<LoginController>().isRecipeFavorite(recipe);
-            return Icon(
-              isFavorite ? Icons.favorite : Icons.favorite_outline,
-              color: isFavorite ? Colors.red : Colors.black,
-              size: 25,
-            );
+            return isFavorite
+                ? Lottie.asset('assets/images/likeed.json',
+                    height: 300, repeat: false)
+                : const Icon(Icons.favorite_outline,
+                    color: Colors.black, size: 30);
           }),
         ),
       ].animate(interval: 200.ms, delay: appBarDelayTime).scaleXY(
