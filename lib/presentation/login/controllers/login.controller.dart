@@ -145,11 +145,27 @@ class LoginController extends GetxController {
     }
   }
 
-
   RxList<String> favoriteRecipeIds = RxList<String>();
 
   bool isRecipeFavorite(Recipe recipe) {
     return favoriteRecipeIds.contains(recipe.id);
+  }
+
+  Future<void> incrementRecipesClickedCount() async {
+    User? firebaseUser = FirebaseAuth.instance.currentUser;
+    if (firebaseUser != null) {
+      DocumentReference userDocRef =
+          _firestore.collection('users').doc(firebaseUser.uid);
+      await _firestore.runTransaction((transaction) async {
+        DocumentSnapshot snapshot = await transaction.get(userDocRef);
+        if (snapshot.exists) {
+          UserModel user =
+              UserModel.fromJson(snapshot.data() as Map<String, dynamic>);
+          int newCount = user.recipesClickedCount + 1;
+          transaction.update(userDocRef, {'recipesClickedCount': newCount});
+        }
+      });
+    }
   }
 
   bool isLoggedIn() {
