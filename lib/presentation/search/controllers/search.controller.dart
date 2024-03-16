@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:recepi_application/domain/core/interfaces/edamin_service.dart';
+import 'package:recepi_application/infrastructure/dal/services/edamin_service.dart';
 
 import '../../../domain/model/edaman.dart';
 
 class SearchrecepiController extends GetxController {
   final TextEditingController searchController = TextEditingController();
   final EdamamApiService apiService =
-      EdamamApiService('bb937e3229ccafaaba075384dd76260e');
+      EdamamApiService('9b4e622a98be02752dba03d3567daed5');
   var searchResults = <EdamamRecipeModel>[].obs;
   var errorMessage = ''.obs;
   var isLoading = false.obs;
