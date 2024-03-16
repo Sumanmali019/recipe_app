@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:recepi_application/presentation/home/home_widget/catgeoy_list_widget.dart';
 import 'package:recepi_application/presentation/home/controllers/home.controller.dart';
 
+import '../../../const_assets/assets.dart';
+
 class AnimatedCategoryList extends GetView<HomeController> {
   final BoxConstraints constraints;
   final Duration categoryListPlayDuration;
@@ -24,13 +26,13 @@ class AnimatedCategoryList extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-        top: constraints.maxHeight * 0.11,
-        height: 65,
-        width: constraints.maxWidth * 0.98,
+        top: constraints.maxHeight * 0.10,
+        height: 80,
+        width: constraints.maxWidth * 0.99,
         child: Obx(() {
           return ListView(
             scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.only(left: 16, right: 16),
+            padding: const EdgeInsets.only(left: 8, right: 8),
             children: List.generate(
                 categories.length,
                 (index) => Padding(
@@ -38,7 +40,7 @@ class AnimatedCategoryList extends GetView<HomeController> {
                       child: GestureDetector(
                         onTap: () => onCategorySelected(categories[index].name),
                         child: FoodCategoryWidget(
-                          icon: controller.categories[index].icon,
+                          imageUrl: Assets.dish,
                           name: controller.categories[index].name,
                           isSelected: controller.categories[index].name
                                   .toLowerCase() ==

@@ -26,8 +26,6 @@ final mainTheme = FlexThemeData.dark().copyWith(
       bodySmall: GoogleFonts.lato(
           fontWeight: FontWeight.bold, fontSize: 14, color: Colors.white),
 
-  
-
       //steps_ingreditant
       titleMedium: GoogleFonts.alice(
           color: Colors.white,

@@ -124,7 +124,7 @@ class _AnimatedImageWidget extends StatelessWidget {
                 ),
               )),
         ),
-        errorWidget: (context, url, error) => Icon(Icons.error),
+        errorWidget: (context, url, error) => const Icon(Icons.error),
       ),
     ).animate(delay: 400.ms).shimmer(duration: 300.ms).flip();
   }
@@ -175,13 +175,13 @@ class _AnimatedDescriptionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        width: screenConstraints.maxWidth * 0.4,
+        width: screenConstraints.maxWidth * 0.48,
         height: 200,
         padding: EdgeInsets.only(
-            top: 10, left: columnConstraints.maxWidth * 0.04, bottom: 10),
+            top: 8, left: columnConstraints.maxWidth * 0.04, bottom: 1),
         child: Text(description,
                 overflow: TextOverflow.ellipsis,
-                maxLines: 4,
+                maxLines: 6,
                 softWrap: true,
                 style: Theme.of(context).textTheme.labelLarge //label large
                 )

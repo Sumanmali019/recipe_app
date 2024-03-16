@@ -19,7 +19,6 @@ class HomeScreen extends GetView<HomeController> {
     return AnnotatedScaffold(
         child: LayoutBuilder(builder: (context, constraints) {
       final avatarWaitingDuration = 400.ms;
-
       final nameDelayDuration =
           avatarWaitingDuration + avatarWaitingDuration + 200.ms;
       final namePlayDuration = 800.ms;

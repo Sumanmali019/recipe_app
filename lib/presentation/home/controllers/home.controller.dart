@@ -7,6 +7,8 @@ import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:recepi_application/domain/model/recipe.dart';
 import 'package:recepi_application/presentation/home/home_widget/catgeoy_list_widget.dart';
 
+import '../../../const_assets/assets.dart';
+
 class HomeController extends GetxController {
   var allRecipes = RxList<Recipe>(); // This will hold all the recipes.
   var recipes =
@@ -19,23 +21,23 @@ class HomeController extends GetxController {
 
   final List<FoodCategoryWidget> categories = [
     const FoodCategoryWidget(
-      icon: "🤤",
+      imageUrl: Assets.dish,
       name: "All",
     ),
     const FoodCategoryWidget(
-      icon: "🔥",
+      imageUrl: Assets.dish,
       name: "Popular",
     ),
     const FoodCategoryWidget(
-      icon: "🥦",
+      imageUrl: Assets.dish,
       name: "Healthy",
     ),
     const FoodCategoryWidget(
-      icon: "🍲",
+      imageUrl: Assets.dish,
       name: "Vegetarian",
     ),
     const FoodCategoryWidget(
-      icon: "🍿",
+      imageUrl: Assets.dish,
       name: "Diet",
     ),
   ].obs;

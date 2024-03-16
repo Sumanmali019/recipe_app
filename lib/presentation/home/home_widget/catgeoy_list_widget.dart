@@ -4,49 +4,109 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../const_assets/theme/app_colors.dart';
 
+// Replace with your actual color or import from your colors file.
+const Color primaryColor = Colors.teal;
+
 class FoodCategoryWidget extends StatelessWidget {
-  final String icon;
+  final String imageUrl;
   final String name;
   final bool isSelected;
   const FoodCategoryWidget({
     Key? key,
-    required this.icon,
-    this.isSelected = false,
+    required this.imageUrl,
     required this.name,
+    this.isSelected = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 35,
-      ),
+      width: 190,
       decoration: BoxDecoration(
-        color: isSelected ? AppColors.bluecolur : Colors.grey.shade300,
-        borderRadius: BorderRadius.circular(25),
+        color: isSelected ? primaryColor : Colors.white,
+        borderRadius: BorderRadius.circular(20),
       ),
-      alignment: Alignment.center,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Stack(
         children: [
-          Text(
-            icon,
-            style: const TextStyle(
-              fontSize: 20,
+          ClipPath(
+            clipper: WaveClipper(),
+            child: Container(
+              decoration: BoxDecoration(
+                color: isSelected ? AppColors.bluecolur : Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              width: double.infinity,
+              height: double.infinity,
             ),
           ),
-          const SizedBox(
-            width: 5,
+          Positioned(
+            left: 16,
+            top: 0,
+            bottom: 0,
+            child: Center(
+              child: Text(
+                name,
+                style: GoogleFonts.alice(
+                  color: isSelected ? Colors.white : Colors.black,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           ),
-          Text(
-            name,
-            style: GoogleFonts.alice(
-                color: isSelected ? Colors.white : Colors.black,
-                fontSize: 15,
-                fontWeight: FontWeight.bold),
-          )
+          Positioned(
+            right: 0,
+            child: ClipRRect(
+              child: Image.asset(
+                imageUrl,
+                width: 80,
+                height: 80,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
         ],
       ),
     );
+  }
+}
+
+class WaveClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.lineTo(0, size.height - 20); // Start from the top left corner
+
+    // Draw the wavy part
+    var firstControlPoint = Offset(size.width / 4, size.height);
+    var firstEndPoint = Offset(size.width / 2, size.height - 30);
+    path.quadraticBezierTo(
+      firstControlPoint.dx,
+      firstControlPoint.dy,
+      firstEndPoint.dx,
+      firstEndPoint.dy,
+    );
+
+    var secondControlPoint =
+        Offset(size.width - (size.width / 4), size.height - 60);
+    var secondEndPoint = Offset(size.width, size.height - 30);
+    path.quadraticBezierTo(
+      secondControlPoint.dx,
+      secondControlPoint.dy,
+      secondEndPoint.dx,
+      secondEndPoint.dy,
+    );
+
+    // Finish the path by drawing a line to the bottom right corner
+    path.lineTo(size.width, size.height - 20);
+    path.lineTo(size.width, 0);
+    path.close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return false;
   }
 }
