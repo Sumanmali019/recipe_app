@@ -9,9 +9,8 @@ class EdamamApiService {
 
   Future<List<dynamic>> searchRecipes(String query) async {
     final response = await http.get(
-      Uri.parse('$apiUrl?type=public&q=$query&app_id=b0eefc7c&app_key=$apiKey'),
+      Uri.parse('$apiUrl?type=public&q=$query&app_id=fe9ce935&app_key=$apiKey'),
     );
-    print(response.body);
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);
       return data['hits'];

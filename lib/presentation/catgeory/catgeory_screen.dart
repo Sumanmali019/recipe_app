@@ -13,9 +13,7 @@ class CatgeoryScreen extends GetView<CatgeoryController> {
   const CatgeoryScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    // final loginController = Get.find<LoginController>();
     return AnnotatedScaffold(
-        // assetPath: "assets/images/recipe_details.png",
         child: LayoutBuilder(builder: (context, constraints) {
       final appBarPlayTime = 800.ms;
       final appBarDelayTime = 400.ms;

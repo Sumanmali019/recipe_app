@@ -9,14 +9,19 @@ class LoginController extends GetxController {
   final GoogleSignIn googleSignIn = GoogleSignIn();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   var userProfileImageUrl = ''.obs;
+  var isLoading = false.obs;
+
   final Rx<User?> _user = Rx<User?>(null);
+
   User? get user => _user.value;
+
   RxList<Recipe> favoriteRecipes = RxList<Recipe>();
 
   @override
   void onInit() {
     super.onInit();
     _user.bindStream(FirebaseAuth.instance.authStateChanges());
+    ever(_user, handleAuthChanged);
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user != null) {
         userProfileImageUrl.value = user.photoURL ?? '';
@@ -25,6 +30,29 @@ class LoginController extends GetxController {
         userProfileImageUrl.value = '';
       }
     });
+  }
+
+  void handleAuthChanged(User? user) async {
+    if (user != null) {
+      await fetchFavoriteRecipes();
+    } else {
+      favoriteRecipes.clear();
+    }
+  }
+
+  Future<void> fetchFavoriteRecipes() async {
+    if (user == null) return;
+    isLoading.value = true;
+
+    final userDoc = _firestore.collection('users').doc(user!.uid);
+    final snapshot = await userDoc.get();
+
+    if (snapshot.exists) {
+      UserModel userModel =
+          UserModel.fromJson(snapshot.data() as Map<String, dynamic>);
+      favoriteRecipes.value = userModel.favoriteRecipes;
+    }
+    isLoading.value = false;
   }
 
   Future<void> signInWithGoogle() async {
@@ -48,6 +76,7 @@ class LoginController extends GetxController {
   Future<void> signOut() async {
     await googleSignIn.signOut();
     await FirebaseAuth.instance.signOut();
+    favoriteRecipes.clear();
   }
 
   void setUserProfileImage(String url) {
@@ -72,7 +101,12 @@ class LoginController extends GetxController {
       );
       await userDoc.set(newUser.toJson());
     } else {
-      await userDoc.update({'lastOpenOrLogin': DateTime.now()});
+      // Existing user: fetch and set favorite recipes
+      UserModel userModel =
+          UserModel.fromJson(snapshot.data() as Map<String, dynamic>);
+      favoriteRecipeIds.clear();
+      favoriteRecipeIds.addAll(userModel.favoriteRecipes.map((r) => r.id));
+      await userDoc.update({'lastOpen': DateTime.now()});
     }
   }
 
@@ -95,32 +129,33 @@ class LoginController extends GetxController {
 
   Future<void> addFavoriteRecipe(Recipe recipe) async {
     User? firebaseUser = FirebaseAuth.instance.currentUser;
-    if (firebaseUser != null) {
-      DocumentReference userDocRef =
-          _firestore.collection('users').doc(firebaseUser.uid);
-      await _firestore.runTransaction((transaction) async {
-        DocumentSnapshot snapshot = await transaction.get(userDocRef);
-        if (snapshot.exists) {
-          UserModel user =
-              UserModel.fromJson(snapshot.data() as Map<String, dynamic>);
-          if (!user.favoriteRecipes.any((r) => r.id == recipe.id)) {
-            user.favoriteRecipes.add(recipe);
-            transaction.update(userDocRef, {
-              'favoriteRecipes':
-                  user.favoriteRecipes.map((r) => r.toJson()).toList()
-            });
-          }
-        }
-      });
-    }
     if (!favoriteRecipeIds.contains(recipe.id)) {
       favoriteRecipeIds.add(recipe.id);
-      // Perform Firestore update as well
+      if (firebaseUser != null) {
+        DocumentReference userDocRef =
+            _firestore.collection('users').doc(firebaseUser.uid);
+        await _firestore.runTransaction((transaction) async {
+          DocumentSnapshot snapshot = await transaction.get(userDocRef);
+          if (snapshot.exists) {
+            UserModel user =
+                UserModel.fromJson(snapshot.data() as Map<String, dynamic>);
+            if (!user.favoriteRecipes.any((r) => r.id == recipe.id)) {
+              user.favoriteRecipes.add(recipe);
+              transaction.update(userDocRef, {
+                'favoriteRecipes':
+                    user.favoriteRecipes.map((r) => r.toJson()).toList()
+              });
+              favoriteRecipes.add(recipe);
+            }
+          }
+        });
+      }
     }
   }
 
   Future<void> removeFavoriteRecipe(Recipe recipe) async {
     User? firebaseUser = FirebaseAuth.instance.currentUser;
+
     if (firebaseUser != null) {
       DocumentReference userDocRef =
           _firestore.collection('users').doc(firebaseUser.uid);
@@ -135,17 +170,59 @@ class LoginController extends GetxController {
                 user.favoriteRecipes.map((r) => r.toJson()).toList()
           });
         }
+        favoriteRecipeIds.remove(recipe.id);
+        favoriteRecipes.removeWhere((r) => r.id == recipe.id);
       });
     }
-    favoriteRecipeIds.remove(recipe.id);
   }
 
-  // This list will hold the IDs of the favorite recipes for reactivity.
   RxList<String> favoriteRecipeIds = RxList<String>();
 
   bool isRecipeFavorite(Recipe recipe) {
-    // Check if the recipe ID is in the observable list
     return favoriteRecipeIds.contains(recipe.id);
+  }
+
+  // Future<void> fetchFavoriteRecipes() async {
+  //   if (user == null) return;
+
+  //   final userDoc = _firestore.collection('users').doc(user!.uid);
+  //   final snapshot = await userDoc.get();
+
+  //   if (snapshot.exists) {
+  //     UserModel userModel =
+  //         UserModel.fromJson(snapshot.data() as Map<String, dynamic>);
+  //     List<Recipe> recipes = [];
+
+  //     for (var recipeId in userModel.favoriteRecipes) {
+  //       DocumentSnapshot recipeDoc = await _firestore
+  //           .collection('recipes')
+  //           .doc(recipeId as String?)
+  //           .get();
+  //       if (recipeDoc.exists) {
+  //         recipes
+  //             .add(Recipe.fromJson(recipeDoc.data() as Map<String, dynamic>));
+  //       }
+  //     }
+
+  //     favoriteRecipes.value = recipes;
+  //   }
+  // }
+
+  Future<void> incrementRecipesClickedCount() async {
+    User? firebaseUser = FirebaseAuth.instance.currentUser;
+    if (firebaseUser != null) {
+      DocumentReference userDocRef =
+          _firestore.collection('users').doc(firebaseUser.uid);
+      await _firestore.runTransaction((transaction) async {
+        DocumentSnapshot snapshot = await transaction.get(userDocRef);
+        if (snapshot.exists) {
+          UserModel user =
+              UserModel.fromJson(snapshot.data() as Map<String, dynamic>);
+          int newCount = user.recipesClickedCount + 1;
+          transaction.update(userDocRef, {'recipesClickedCount': newCount});
+        }
+      });
+    }
   }
 
   bool isLoggedIn() {
