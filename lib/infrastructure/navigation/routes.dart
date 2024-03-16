@@ -4,14 +4,15 @@ class Routes {
   }
 
   // ignore: constant_identifier_names
-  static const HOME = '/home';
 
   // ignore: constant_identifier_names
-  static const LOGIN = '/login';
 
   // ignore: constant_identifier_names
-  static const ONBORDING = '/onbording';
 
   // ignore: constant_identifier_names
   static const CATGEORY = '/catgeory';
+  static const HOME = '/home';
+  static const LOGIN = '/login';
+  static const ONBORDING = '/onbording';
+  static const SEARCH = '/search';
 }

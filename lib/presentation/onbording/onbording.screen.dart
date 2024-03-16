@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:recepi_application/const_assets/theme/app_colors.dart';
 import 'package:recepi_application/presentation/onbording/widgets/onboarding_screen_export_widget.dart';
 
 import '../../const_assets/text_const.dart';
@@ -12,9 +13,9 @@ class OnbordingScreen extends GetView<OnbordingController> {
   Widget build(BuildContext context) {
     FontThemeClass fontThemeClass = FontThemeClass();
     return Scaffold(
-        backgroundColor: const Color.fromRGBO(255, 222, 89, 1),
+        backgroundColor: AppColors.onBoardingButtonColor,
         appBar: AppBar(
-          backgroundColor: const Color.fromRGBO(255, 222, 89, 1),
+          backgroundColor: AppColors.onBoardingButtonColor,
           title: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             // crossAxisAlignment: CrossAxisAlignment.end,

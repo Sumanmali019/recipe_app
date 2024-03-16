@@ -32,7 +32,9 @@ class AnimatedSlidingPanel extends AnimatedWidget {
       margin: EdgeInsets.symmetric(
           horizontal: constraints.maxWidth * 0.4, vertical: 10),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10), color: Colors.white24),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colors.white, width: 1),
+      ),
     );
     return SlidingUpPanel(
         header: header,
@@ -42,6 +44,7 @@ class AnimatedSlidingPanel extends AnimatedWidget {
         minHeight:
             constraints.maxHeight * (listenable as Animation<double>).value,
         borderRadius: BorderRadius.circular(30),
+        border: Border.all(color: Colors.white, width: 2),
         body: body,
         panel: Column(
           children: [
