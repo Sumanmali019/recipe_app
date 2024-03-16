@@ -11,16 +11,16 @@ class LoginScreen extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF1F1F1F), // Dark background color
+      backgroundColor: const Color(0xFF1F1F1F),
       appBar: AppBar(
         leading: controller.user == null
             ? IconButton(
-                icon: Icon(Icons.arrow_back, color: Colors.white),
+                icon: const Icon(Icons.arrow_back, color: Colors.white),
                 onPressed: () => Get.back(),
               )
             : null,
         title: Obx(() => Text(controller.user == null ? 'Login' : 'Welcome ',
-            style: TextStyle(color: Colors.white))),
+            style: const TextStyle(color: Colors.white))),
         backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
@@ -55,10 +55,21 @@ class LoginScreen extends GetView<LoginController> {
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 50),
-            SignInButton(
-              Buttons.google,
-              text: "Sign in with Google",
-              onPressed: () => controller.signInWithGoogle(),
+            SizedBox(
+              width: double.infinity,
+              height: 45,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 70),
+                child: SignInButton(
+                  Buttons.google,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  elevation: 18, // Shadow elevation
+                  text: "Sign in with Google",
+                  onPressed: () => controller.signInWithGoogle(),
+                ),
+              ),
             ),
           ],
         ),
