@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
-import 'package:recepi_application/const_assets/theme/app_colors.dart';
 
-class AnimatedNameWidget extends StatelessWidget {
+class AnimatedsearchWidget extends StatelessWidget {
   final Duration namePlayDuration;
   final Duration nameDelayDuration;
   final BoxConstraints constraints;
-  const AnimatedNameWidget({
+  const AnimatedsearchWidget({
     super.key,
     required this.namePlayDuration,
     required this.nameDelayDuration,
@@ -23,19 +22,39 @@ class AnimatedNameWidget extends StatelessWidget {
         onTap: () {
           Get.toNamed('/search');
         },
-        child: const Row(
+        child: Row(
           children: [
-            Icon(
-              Icons.search,
-              size: 35,
-              color: AppColors.bluecolur,
-              weight: 50,
-              opticalSize: 50,
+            Container(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 8,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              child: const Row(
+                children: [
+                  Icon(
+                    Icons.search,
+                    color: Colors.grey,
+                  ),
+                  SizedBox(width: 10),
+                  Text(
+                    'Search for recipes',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
             ),
-            Text(
-              "search",
-              style: TextStyle(fontSize: 22, color: Colors.black),
-            )
           ],
         ),
       )

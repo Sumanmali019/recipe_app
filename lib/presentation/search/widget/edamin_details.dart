@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:recepi_application/presentation/search/widget/edamin_app_widget.dart';
 import 'package:recepi_application/presentation/search/widget/search_time_line.dart';
 import '../../../domain/model/edaman.dart';
-import '../../catgeory/widgets/animated_app_bar.dart';
 import '../../catgeory/widgets/reciepi_information.dart';
 import '../../home/home_widget/home_saffold.dart';
 import '../../onbording/widgets/animated_dish_widget.dart';
@@ -19,8 +19,8 @@ class EdamamRecipeDetail extends StatefulWidget {
 class _EdamamRecipeDetailState extends State<EdamamRecipeDetail> {
   @override
   Widget build(BuildContext context) {
+    // Get.put(CatgeoryController());
     return AnnotatedScaffold(
-      // assetPath: "assets/images/recipe_details.png",
       child: LayoutBuilder(builder: (context, constraints) {
         final appBarPlayTime = 800.ms;
         final appBarDelayTime = 400.ms;
@@ -32,7 +32,7 @@ class _EdamamRecipeDetailState extends State<EdamamRecipeDetail> {
           constraints: constraints,
           body: Column(
             children: [
-              AnimatedAppBarWidget(
+              EdaminanimatedAppBarWidget(
                 name: widget.recipeModel.title,
                 appBarPlayTime: appBarPlayTime,
                 appBarDelayTime: appBarDelayTime,
