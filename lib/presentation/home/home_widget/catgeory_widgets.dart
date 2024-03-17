@@ -40,7 +40,7 @@ class AnimatedCategoryList extends GetView<HomeController> {
                       child: GestureDetector(
                         onTap: () => onCategorySelected(categories[index].name),
                         child: FoodCategoryWidget(
-                          imageUrl: Assets.dish,
+                          imageUrl: controller.categories[index].imageUrl,
                           name: controller.categories[index].name,
                           isSelected: controller.categories[index].name
                                   .toLowerCase() ==

@@ -12,7 +12,20 @@
           "package_name": "com.sumanmaitryee.recepi_application"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "80740378044-c2a274cnfu5h6s35ptmemciejj3kfshg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sumanmaitryee.recepi_application",
+            "certificate_hash": "f666fc68c1ed9b61dfa09fcd810ea977dbee6beb"
+          }
+        },
+        {
+          "client_id": "80740378044-e768uhk4p22oa4if130376r8acau9qjo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAv2H_peFAJmj1LzyKFpv8ZL1-h43ctbzI"
@@ -20,9 +33,22 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "80740378044-e768uhk4p22oa4if130376r8acau9qjo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "80740378044-el9cn7a126bpl8do16lr28t2fnqf2ev1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sumanmaitryee.recepiApplication"
+              }
+            }
+          ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-7451422305771140~1237808821"
     }
   ],
   "configuration_version": "1"

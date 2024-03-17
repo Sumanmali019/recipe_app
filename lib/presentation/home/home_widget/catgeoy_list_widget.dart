@@ -7,13 +7,14 @@ import '../../../const_assets/theme/app_colors.dart';
 // Replace with your actual color or import from your colors file.
 const Color primaryColor = Colors.teal;
 
+// ignore: must_be_immutable
 class FoodCategoryWidget extends StatelessWidget {
-  final String imageUrl;
+  String? imageUrl;
   final String name;
   final bool isSelected;
-  const FoodCategoryWidget({
+  FoodCategoryWidget({
     Key? key,
-    required this.imageUrl,
+    this.imageUrl,
     required this.name,
     this.isSelected = false,
   }) : super(key: key);
@@ -46,9 +47,10 @@ class FoodCategoryWidget extends StatelessWidget {
             child: Center(
               child: Text(
                 name,
+                maxLines: 2,
                 style: GoogleFonts.alice(
                   color: isSelected ? Colors.white : Colors.black,
-                  fontSize: 24,
+                  fontSize: 12,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -58,7 +60,7 @@ class FoodCategoryWidget extends StatelessWidget {
             right: 0,
             child: ClipRRect(
               child: Image.asset(
-                imageUrl,
+                imageUrl!,
                 width: 80,
                 height: 80,
                 fit: BoxFit.cover,

@@ -71,7 +71,7 @@ class _AnimatedNutritionText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          top: columnConstraints.maxHeight * 0.2,
+          top: columnConstraints.maxHeight * 0.1,
           left: columnConstraints.maxWidth * 0.04),
       child: Text(
               "${nutrition["calories"]} cal \t\t\t\t${nutrition["serving"]} person",

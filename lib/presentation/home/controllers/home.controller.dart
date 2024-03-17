@@ -20,25 +20,29 @@ class HomeController extends GetxController {
   RxBool isSelected = false.obs;
 
   final List<FoodCategoryWidget> categories = [
-    const FoodCategoryWidget(
-      imageUrl: Assets.dish,
+    FoodCategoryWidget(
+      imageUrl: Assets.all,
       name: "All",
     ),
-    const FoodCategoryWidget(
-      imageUrl: Assets.dish,
-      name: "Popular",
+    FoodCategoryWidget(
+      imageUrl: Assets.north,
+      name: "North Indian",
     ),
-    const FoodCategoryWidget(
-      imageUrl: Assets.dish,
-      name: "Healthy",
+    FoodCategoryWidget(
+      imageUrl: Assets.center,
+      name: "Central Indian",
     ),
-    const FoodCategoryWidget(
-      imageUrl: Assets.dish,
-      name: "Vegetarian",
+    FoodCategoryWidget(
+      imageUrl: Assets.east,
+      name: "East Indian",
     ),
-    const FoodCategoryWidget(
-      imageUrl: Assets.dish,
-      name: "Diet",
+    FoodCategoryWidget(
+      imageUrl: Assets.west,
+      name: "West Indian",
+    ),
+    FoodCategoryWidget(
+      imageUrl: Assets.south,
+      name: "South Indian",
     ),
   ].obs;
 

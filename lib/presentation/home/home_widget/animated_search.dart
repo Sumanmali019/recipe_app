@@ -26,7 +26,7 @@ class AnimatedsearchWidget extends StatelessWidget {
           children: [
             Container(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+                  const EdgeInsets.symmetric(horizontal: 65.0, vertical: 15.0),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30.0),
@@ -40,9 +40,12 @@ class AnimatedsearchWidget extends StatelessWidget {
               ),
               child: const Row(
                 children: [
-                  Icon(
-                    Icons.search,
-                    color: Colors.grey,
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Icon(
+                      Icons.search,
+                      color: Colors.grey,
+                    ),
                   ),
                   SizedBox(width: 10),
                   Text(

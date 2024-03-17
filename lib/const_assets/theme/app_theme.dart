@@ -35,18 +35,18 @@ final mainTheme = FlexThemeData.dark().copyWith(
 
       //recepi_name
       titleLarge: GoogleFonts.alice(
-          fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
+          fontSize: 17, fontWeight: FontWeight.bold, color: Colors.white),
 
       //recepi_cal && recepi_card_cal_infro
       labelMedium: GoogleFonts.alice(
-        fontSize: 16,
+        fontSize: 15,
         color: Colors.white,
         fontWeight: FontWeight.bold,
       ),
 
       //description
       labelLarge: const TextStyle(
-          fontSize: 14, color: Colors.orange, fontWeight: FontWeight.w800),
+          fontSize: 13, color: Colors.orange, fontWeight: FontWeight.w800),
     ),
     cardTheme: CardTheme(
         color: AppColors.bluecolur,
